@@ -34,3 +34,35 @@ self.addEventListener('fetch', e => {
     }).catch(() => e.request.mode === 'navigate' ? caches.match('./index.html') : new Response('', { status: 504 })))
   );
 });
+// ── VH Notify — Push Event ─────────────────────────────
+self.addEventListener('push', e => {
+  let data = {};
+  try { data = e.data ? e.data.json() : {}; } catch (_) {}
+
+  const title   = data.title || '🔔 VH Original';
+  const options = {
+    body:    data.message || '',
+    icon:    data.icon    || '/icon-192.png',
+    badge:   data.badge   || '/badge-96.png',
+    image:   data.image   || undefined,
+    data:    { url: data.url || 'https://vhoriginal.com/' },
+    vibrate: [200, 100, 200],
+  };
+  e.waitUntil(self.registration.showNotification(title, options));
+});
+
+// ── VH Notify — Notification Click ────────────────────
+self.addEventListener('notificationclick', e => {
+  e.notification.close();
+  const url = (e.notification.data && e.notification.data.url)
+            ? e.notification.data.url
+            : 'https://vhoriginal.com/';
+  e.waitUntil(
+    clients.matchAll({ type: 'window', includeUncontrolled: true }).then(list => {
+      for (const c of list) {
+        if (c.url === url && 'focus' in c) return c.focus();
+      }
+      return clients.openWindow(url);
+    })
+  );
+});
