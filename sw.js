@@ -8,7 +8,7 @@
    Cache version: bump CACHE string to force full refresh.
 ═══════════════════════════════════════════════════════════ */
 
-const CACHE   = 'zenhub-v3';
+const CACHE   = 'zenhub-v4';
 const ASSETS  = [
   './',
   './index.html',
