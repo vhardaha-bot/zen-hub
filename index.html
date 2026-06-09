@@ -40,12 +40,12 @@
   --h:      #f0ede8; --b:      #c8c5be; --m:      #7a7670;
   --gold:   #d4a853; --gold2:  #b8842a; --gold3:  #f0c96e;
   --cyan:   #00d4ff; --orange: #ff8c42; --crimson:#e53535;
-  --purple: #a855d4; --green:  #25d366; --pink:   #ff4d85;
+  --purple: #a855d4; --green:  #25d366;
 }
 
 /* ── Reset ── */
 *,*::before,*::after { box-sizing:border-box; margin:0; padding:0; -webkit-tap-highlight-color:transparent; }
-html,body { background:var(--bg); overscroll-behavior-y: contain; }
+html,body { background:var(--bg); overscroll-behavior-y: none; }
 body {
   font-family:'Hind',sans-serif; color:var(--b); min-height:100vh; overflow-x:hidden;
   background:
@@ -146,7 +146,7 @@ body {
 .mantra-btn { background:none; border:1px solid rgba(212,168,83,.2); color:var(--m); font-size:16px; width:30px; height:30px; border-radius:4px; cursor:pointer; display:flex; align-items:center; justify-content:center; transition:border-color .2s; }
 .mantra-btn:active { transform:scale(.9); }
 .mantra-label { font-family:'Cinzel',serif; font-size:13px; color:var(--gold3); letter-spacing:2px; min-width:80px; text-align:center; }
-.mala-tracks { display:flex; width:100%; height:420px; position:relative; overflow:hidden; touch-action:none; }
+.mala-tracks { display:flex; width:100%; height:420px; position:relative; overflow:hidden; touch-action:none; overscroll-behavior-y:none; }
 .mala-tracks::before,.mala-tracks::after { content:''; position:absolute; left:0; right:0; height:110px; z-index:3; pointer-events:none; }
 .mala-tracks::before { top:0; background:linear-gradient(to bottom,#0c0a07 0%,rgba(12,10,7,.8) 40%,transparent 100%); }
 .mala-tracks::after  { bottom:0; background:linear-gradient(to top,#0c0a07 0%,rgba(12,10,7,.8) 40%,transparent 100%); }
@@ -183,7 +183,7 @@ body {
    GEARBOX SPINNER (No Text in Rings)
 ═══════════════════════════════════════ */
 .gear-tool { background:linear-gradient(165deg,#0e0e12,#090909); border:1px solid rgba(0,212,255,.1); border-radius:4px; padding:20px 10px 24px; box-shadow:0 20px 50px rgba(0,0,0,.6),inset 0 1px 0 rgba(0,212,255,.06); margin-bottom:14px; text-align:center; position:relative; }
-.gearbox-wrap { position:relative; width:min(340px,96vw); height:min(340px,96vw); margin:0 auto 16px; }
+.gearbox-wrap { position:relative; width:min(340px,96vw); height:min(340px,96vw); margin:0 auto 16px; touch-action:none; overscroll-behavior:none; }
 .gear-outer-svg { position:absolute; inset:0; width:100%; height:100%; touch-action:none; cursor:pointer; z-index:1; }
 .gear-inner-svg { position:absolute; top:20%; left:20%; width:60%; height:60%; z-index:2; pointer-events:none; }
 .gear-arrows { position:absolute; inset:0; z-index:5; pointer-events:none; }
@@ -305,19 +305,19 @@ body {
 .play-tab.active { color:var(--green); border-bottom-color:var(--green); }
 
 /* Bubble Wrap */
-.bubble-grid { display:grid; grid-template-columns:repeat(5, 1fr); gap:12px; max-width:280px; margin:20px auto; padding:10px; }
+.bubble-grid { display:grid; grid-template-columns:repeat(5, 1fr); gap:12px; max-width:280px; margin:20px auto; padding:10px; touch-action:none; }
 .bubble { aspect-ratio:1; border-radius:50%; background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.1); cursor:pointer; touch-action:none; transition:all .15s ease; box-shadow:inset 0 2px 4px rgba(0,0,0,.5); }
 .bubble.popped { background:var(--cyan); border-color:var(--cyan); box-shadow:0 0 15px rgba(0,212,255,.6), inset 0 0 5px rgba(255,255,255,.5); transform:scale(0.85); opacity:0.6; pointer-events:none; }
 .btn-reset-play { display:block; margin:20px auto 0; background:none; border:1px solid rgba(37,211,102,.4); color:var(--green); padding:8px 20px; border-radius:4px; font-family:'Rajdhani',sans-serif; font-size:12px; font-weight:700; letter-spacing:2px; text-transform:uppercase; cursor:pointer; transition:transform .1s; }
 .btn-reset-play:active { transform:scale(.95); }
 
 /* Canvas Games Container */
-.canvas-wrap { width:100%; height:300px; background:#050505; border-radius:4px; border:1px solid rgba(255,255,255,.05); position:relative; overflow:hidden; touch-action:none; margin-top:10px; }
+.canvas-wrap { width:100%; height:300px; background:#050505; border-radius:4px; border:1px solid rgba(255,255,255,.05); position:relative; overflow:hidden; touch-action:none; margin-top:10px; overscroll-behavior:none; }
 .canvas-wrap canvas { display:block; width:100%; height:100%; touch-action:none; }
 .game-hint { text-align:center; font-size:11px; color:var(--m); margin-top:12px; letter-spacing:1px; font-family:'Rajdhani',sans-serif; text-transform:uppercase; }
 
 /* Aura Alignment */
-.aura-wrap { width:100%; height:280px; position:relative; overflow:hidden; background:#050505; border-radius:4px; border:1px solid rgba(255,255,255,.05); margin-top:10px; touch-action:none; }
+.aura-wrap { width:100%; height:280px; position:relative; overflow:hidden; background:#050505; border-radius:4px; border:1px solid rgba(255,255,255,.05); margin-top:10px; touch-action:none; overscroll-behavior:none; }
 .aura-ring { position:absolute; width:120px; height:120px; border-radius:50%; mix-blend-mode:screen; filter:blur(8px); opacity:0.8; transition:transform 0.1s linear; pointer-events:none; }
 .aura-r1 { background:radial-gradient(circle, #ff0055, transparent 70%); }
 .aura-r2 { background:radial-gradient(circle, #00d4ff, transparent 70%); }
@@ -334,7 +334,7 @@ body {
 #flash.show { opacity:1; transform:translate(-50%,-50%) scale(1); }
 
 /* ═══════════════════════════════════════
-   SHARE / INSTALL / ADS / FEED
+   SHARE / INSTALL / ADS / FEED (RESTORED WP API)
 ═══════════════════════════════════════ */
 .share-bar { display:flex; gap:10px; margin:0 0 12px; }
 .share-bar a,.share-bar button { flex:1; display:flex; align-items:center; justify-content:center; gap:6px; height:46px; border-radius:4px; font-family:'Hind',sans-serif; font-size:13px; font-weight:700; cursor:pointer; text-decoration:none; border:1px solid transparent; transition:transform .12s; }
@@ -665,36 +665,98 @@ body {
 
     <div id="footer">
       <div class="share-bar">
-        <button class="sh-copy" id="shCopy" type="button">Link कॉपी करें</button>
+        <a class="sh-wa" id="shWa" href="#" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+          WhatsApp शेयर
+        </a>
+        <button class="sh-copy" id="shCopy" type="button">
+          <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1"/><path d="M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1"/></svg>
+          <span id="shCopyT">Link कॉपी करें</span>
+        </button>
       </div>
-      <div class="install"><div class="ic">⬇️</div><div>App install करें: <b>Add to Home screen</b></div></div>
-      <div class="adwrap"><div class="adlbl">विज्ञापन</div><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8032879638880236" data-ad-slot="2413655359" data-ad-format="auto" data-full-width-responsive="true"></ins></div>
+      <div class="install">
+        <div class="ic">⬇️</div>
+        <div>App install करें: ऊपर <b>3 Dots (⋮)</b> → <b>Add to Home screen</b></div>
+      </div>
+      <div class="adwrap">
+        <div class="adlbl">विज्ञापन</div>
+        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8032879638880236" data-ad-slot="2413655359" data-ad-format="auto" data-full-width-responsive="true"></ins>
+      </div>
       <div class="sec-h"><span class="dot"></span>पौराणिक कथाएँ व रहस्य</div>
-      <div id="cat1"><div class="big"><div class="sk big"></div></div><div class="grid"><div class="sk sm"></div></div></div>
+      <div id="cat1">
+        <div class="big"><div class="sk big"></div></div>
+        <div class="grid"><div class="sk sm"></div><div class="sk sm"></div><div class="sk sm"></div><div class="sk sm"></div></div>
+      </div>
+      <div class="adwrap">
+        <div class="adlbl">विज्ञापन</div>
+        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8032879638880236" data-ad-slot="6153441428" data-ad-format="auto" data-full-width-responsive="true"></ins>
+      </div>
+      <div class="sec-h"><span class="dot"></span>लत से आज़ादी — सच्चाई</div>
+      <div id="cat2">
+        <div class="big"><div class="sk big"></div></div>
+        <div class="grid"><div class="sk sm"></div><div class="sk sm"></div><div class="sk sm"></div><div class="sk sm"></div></div>
+      </div>
     </div>
   </div>
 
-  <div class="foot">बनाया गया ❤️ से · <a href="https://vhoriginal.com">vhoriginal.com</a></div>
+  <div class="seo">
+    <h2>Zen Hub 2.0 — मन शांत करने का 4-in-1 डिजिटल टूल</h2>
+    <p><b>Zen Hub 2.0</b> — दो-धारा जाप माला, क्वांटम गियरबॉक्स, Zen Playground, Haptic Grounding Zone और Let Go Canvas। Spin करो और अपनी Habit × Personality जानो।</p>
+    <p>108 की संख्या भारतीय अध्यात्म में सदियों से इस्तेमाल होती आई है। Zen Hub PWA है — इंस्टॉल के बाद ऑफ़लाइन भी चलता है।</p>
+  </div>
+  <div class="foot">
+    बनाया गया ❤️ से · <a href="https://vhoriginal.com" target="_blank" rel="noopener">Vista Hub — vhoriginal.com</a><br>
+    © <span id="yr"></span> सभी अधिकार सुरक्षित
+  </div>
 </div>
+
+<script>
+(function(){
+  var url = (location.href||'').split('#')[0];
+  if(url.indexOf('http') !== 0) url = 'https://relax.vhoriginal.com/';
+  var msg = 'मेरा दिमाग आज बहुत शांत है, तुम भी ये डिजिटल रिलैक्सेशन ट्राई करो... 👇\n';
+  var wa = document.getElementById('shWa');
+  if(wa) wa.href = 'https://wa.me/?text=' + encodeURIComponent(msg + url);
+
+  var cp = document.getElementById('shCopy'), cpt = document.getElementById('shCopyT');
+  function fallbackCopy(t){
+    try{
+      var ta = document.createElement('textarea');
+      ta.value = t; ta.style.cssText = 'position:fixed;opacity:0;top:0;left:0';
+      document.body.appendChild(ta); ta.focus(); ta.select();
+      document.execCommand('copy'); document.body.removeChild(ta);
+    } catch(e){}
+  }
+  if(cp) cp.addEventListener('click', function(){
+    var done = function(){
+      cp.classList.add('done'); cpt.textContent = 'कॉपी हो गया ✓';
+      setTimeout(function(){ cp.classList.remove('done'); cpt.textContent = 'Link कॉपी करें'; }, 1800);
+    };
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(url).then(done).catch(function(){ fallbackCopy(url); done(); });
+    } else { fallbackCopy(url); done(); }
+  });
+})();
+</script>
 
 <script>
 (function(){
 'use strict';
 var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion:reduce)').matches;
+document.getElementById('yr').textContent = new Date().getFullYear();
 function buzz(p){ try{ if(navigator.vibrate) navigator.vibrate(p); } catch(e){} }
 
 /* ═══ QUOTES ═══ */
-var MQ = ['हर मनका एक सांस है — <span class="accent">बस इसी पल में रहो।</span>','भीतर का शोर बंद करो — <span class="accent">परमात्मा वहीं बोलता है।</span>'];
-var GQ = ['Burnout real है — <span class="accent">release भी real है।</span>','Overthinking = mental gear jam. <span class="accent">Spin it out.</span>'];
-var RQ = ['सांस पर ध्यान दो — <span class="accent">बाकी सब इंतज़ार कर सकता है।</span>','4-7-8 — <span class="accent">anxiety का antidote।</span>'];
+var MQ = ['हर मनका एक सांस है — <span class="accent">बस इसी पल में रहो।</span>','108 बार नाम लेने से मन खाली नहीं, <span class="accent">भरा होता है।</span>','माला नहीं घुमाते — <span class="accent">अहंकार को घुमाते हो।</span>'];
+var GQ = ['Burnout real है — <span class="accent">release भी real है।</span>','Control illusion है — <span class="accent">friction नहीं।</span>','Overthinking = mental gear jam. <span class="accent">Spin it out.</span>'];
+var RQ = ['सांस पर ध्यान दो — <span class="accent">बाकी सब इंतज़ार कर सकता है।</span>','Exhale करो — <span class="accent">tension भी साथ जाती है।</span>','4-7-8 — <span class="accent">anxiety का antidote।</span>'];
 var PQ = ['दिमाग को खाली करो — <span class="accent">बिना सोचे काम करो।</span>','बबल्स फोड़ो, <span class="accent">टेंशन नहीं।</span>','Zen state में <span class="accent">लहरों को महसूस करो।</span>'];
 
 var mqEl=document.getElementById('malaQuote'), gqEl=document.getElementById('gearQuote'), rqEl=document.getElementById('relaxQuote'), pqEl=document.getElementById('playQuote');
-var mqT, gqT, rqT, pqT;
 function showQ(el, arr){ el.innerHTML=arr[Math.floor(Math.random()*arr.length)]; el.classList.remove('show'); setTimeout(()=>el.classList.add('show'),100); }
 
 /* ═══ NAVIGATION ═══ */
-var currentView = 'lobby';
+var currentView = 'lobby', footerInit = false;
 function show(view){
   currentView = view;
   document.getElementById('lobby').classList.toggle('on', view === 'lobby');
@@ -708,6 +770,7 @@ function show(view){
   if(view === 'spinner') { resetGearbox(); showQ(gqEl,GQ); }
   if(view === 'relax') showQ(rqEl,RQ);
   if(view === 'play') { initPlayground(); showQ(pqEl,PQ); }
+  if(view !== 'lobby') initFooterOnce();
   
   window.scrollTo(0,0);
 }
@@ -717,10 +780,24 @@ document.getElementById('goRelax').onclick = ()=>show('relax');
 document.getElementById('goPlay').onclick = ()=>show('play');
 document.getElementById('backBtn').onclick = ()=>show('lobby');
 
+function initFooterOnce(){
+  if(footerInit) return; footerInit = true;
+  setupCat('cat1','mythology','📜 पौराणिक'); setupCat('cat2','addiction-truth','🧠 सच');
+  requestAnimationFrame(() => setTimeout(()=>{ try{ var ins = document.querySelectorAll('#footer ins.adsbygoogle'); for(var i=0;i<ins.length;i++){ (window.adsbygoogle=window.adsbygoogle||[]).push({}); } } catch(e){} }, 300));
+}
+
 /* ════════════════════════════════════════════════════════
    MALA — TRUE PULL DOWN LOGIC
 ════════════════════════════════════════════════════════ */
+var MANTRAS = [{symbol:'ॐ',label:'OM',name:'OMKAR'},{symbol:'राम',label:'RAM',name:'RAAMNAAM'},{symbol:'राधे',label:'RADHA',name:'RADHE RADHE'},{symbol:'शिव',label:'SHIV',name:'SHIVNAAM'},{symbol:'हरे',label:'HARE',name:'HARE KRISHNA'}];
+var mIdx=0;
+document.getElementById('mantraPrev').onclick=()=>{ mIdx=(mIdx-1+MANTRAS.length)%MANTRAS.length; applyMantra(); buzz(5); };
+document.getElementById('mantraNext').onclick=()=>{ mIdx=(mIdx+1)%MANTRAS.length; applyMantra(); buzz(5); };
+function applyMantra(){ document.getElementById('malaOmSym').textContent=MANTRAS[mIdx].symbol; document.getElementById('malaOmName').textContent=MANTRAS[mIdx].name; document.getElementById('mantraLabel').textContent=MANTRAS[mIdx].label; }
+
 var mSt = {total:0, malas:0};
+try{ var sv = JSON.parse(localStorage.getItem('vh_zen2_jaap') || 'null'); if(sv){ mSt.total=sv.total||0; mSt.malas=sv.malas||0; } } catch(e){}
+
 var BEAD_H_R = 74, BEAD_H_L = 54, TRACK_H = 420;
 var vR = 0, vL = 0, dragOn = false, dragId = null, dragAccum = 0, lastClientY = 0;
 var stripRight = document.getElementById('stripRight'), stripLeft = document.getElementById('stripLeft'), trackRight = document.getElementById('trackRight');
@@ -738,33 +815,31 @@ function applyTransforms(animate){
   stripRight.style.transition = tr; stripLeft.style.transition = tr;
   stripRight.style.transform = 'translateY('+vR+'px)'; stripLeft.style.transform = 'translateY('+vL+'px)';
 }
+function renderM(){
+  var pos = mSt.total===0 ? 0 : (((mSt.total-1)%108)+1);
+  document.getElementById('cnum').textContent = ('00'+pos).slice(-3);
+  document.getElementById('mcount').textContent = mSt.malas;
+}
 
 function initMala(){
   if(stripRight.children.length) return;
   buildStrip(stripRight, 16, BEAD_H_R); buildStrip(stripLeft, 20, BEAD_H_L);
-  vR = wrapOffset(TRACK_H/2 - BEAD_H_R/2, BEAD_H_R);
-  vL = wrapOffset(TRACK_H/2 - BEAD_H_L/2, BEAD_H_L);
-  applyTransforms(false);
+  vR = wrapOffset(TRACK_H/2 - BEAD_H_R/2, BEAD_H_R); vL = wrapOffset(TRACK_H/2 - BEAD_H_L/2, BEAD_H_L);
+  applyTransforms(false); renderM();
   trackRight.addEventListener('pointerdown', e=>{ dragOn=true; dragId=e.pointerId; lastClientY=e.clientY; dragAccum=0; trackRight.setPointerCapture(e.pointerId); });
   trackRight.addEventListener('pointermove', e=>{
     if(!dragOn || e.pointerId!==dragId) return;
     var dy = e.clientY - lastClientY; lastClientY = e.clientY;
     
-    // 🔥 FIX: Pulling DOWN (dy > 0) advances the bead count!
+    // 🔥 PULL DOWN (dy > 0) increments count.
     if(dy > 0){
       dragAccum += dy;
-      while(dragAccum >= BEAD_H_R){
-        dragAccum -= BEAD_H_R;
-        countOneBead();
-      }
-      // Visual shift while dragging
-      vR = wrapOffset(vR + dy, BEAD_H_R);
-      vL = wrapOffset(vL - dy * (BEAD_H_L/BEAD_H_R), BEAD_H_L);
+      while(dragAccum >= BEAD_H_R){ dragAccum -= BEAD_H_R; countOneBead(); }
+      vR = wrapOffset(vR + dy, BEAD_H_R); vL = wrapOffset(vL - dy * (BEAD_H_L/BEAD_H_R), BEAD_H_L);
       applyTransforms(false);
     } else {
-      // Small up drag (just visual, no counting backwards)
-      vR = wrapOffset(vR + dy, BEAD_H_R);
-      vL = wrapOffset(vL - dy * (BEAD_H_L/BEAD_H_R), BEAD_H_L);
+      // Pulling up simply scrolls visually backwards, no negative counting
+      vR = wrapOffset(vR + dy, BEAD_H_R); vL = wrapOffset(vL - dy * (BEAD_H_L/BEAD_H_R), BEAD_H_L);
       applyTransforms(false);
     }
   });
@@ -776,29 +851,186 @@ function snapValue(v, cellH){ var ideal = TRACK_H/2 - cellH/2; var rem = ((ideal
 function snapFinal(){ vR=snapValue(vR,BEAD_H_R); vL=snapValue(vL,BEAD_H_L); applyTransforms(true); }
 
 function countOneBead(){
-  mSt.total++; document.getElementById('cnum').textContent = ('00'+(((mSt.total-1)%108)+1)).slice(-3);
-  buzz([15]); // Crisp haptic
+  mSt.total++; renderM(); buzz([15]);
   var om = document.getElementById('malaOm'); om.classList.remove('pulse-glow'); void om.offsetWidth; om.classList.add('pulse-glow');
+  try{ localStorage.setItem('vh_zen2_jaap', JSON.stringify(mSt)); } catch(e){}
+  if(mSt.total % 108 === 0){
+    mSt.malas = Math.floor(mSt.total/108); renderM(); buzz([0,40,60,40,90]);
+    var flashEl = document.getElementById('flash'); flashEl.textContent = mSt.malas + ' माला पूरी 🙏'; flashEl.classList.add('show'); setTimeout(()=>flashEl.classList.remove('show'), 1800);
+  }
 }
+document.getElementById('resetBtn').onclick=()=>{ mSt.total=0; mSt.malas=0; try{localStorage.removeItem('vh_zen2_jaap');}catch(e){} renderM(); buzz(10); vR=wrapOffset(TRACK_H/2-BEAD_H_R/2,BEAD_H_R); vL=wrapOffset(TRACK_H/2-BEAD_H_L/2,BEAD_H_L); applyTransforms(true); };
 
 /* ════════════════════════════════════════════════════════
-   GEARBOX (No Text)
+   GEARBOX (No Text inside SVG rings)
 ════════════════════════════════════════════════════════ */
 var HC = ['#e55a4e','#f08030','#f5c518','#6dba4e','#3ab8c8','#5b7de8','#a855d4','#e83e8c'];
 var PC = ['#00b4d8','#48cae4','#90e0ef','#0077b6','#7b2d8b','#9d4edd','#c77dff','#e0aaff'];
+var HABIT_LIST=[{label:'LAZY',emoji:'😴',id:'lazy'},{label:'SHY',emoji:'🫣',id:'shy'},{label:'LOVER',emoji:'💕',id:'lover'},{label:'SILENT',emoji:'😶',id:'silent'},{label:'BOSS',emoji:'😎',id:'boss'},{label:'KING',emoji:'👑',id:'king'},{label:'DON',emoji:'🕶️',id:'don'},{label:'WARRIOR',emoji:'⚔️',id:'warrior'}];
+var PERS_LIST=[{label:'DREAMER',emoji:'🌙',id:'dreamer'},{label:'HUSTLER',emoji:'🔥',id:'hustler'},{label:'REBEL',emoji:'💀',id:'rebel'},{label:'CHILL',emoji:'🧊',id:'chill'},{label:'SAVAGE',emoji:'🐺',id:'savage'},{label:'MYSTIC',emoji:'🔮',id:'mystic'},{label:'LOVER',emoji:'💕',id:'lover_p'},{label:'GHOST',emoji:'👻',id:'ghost'}];
+var PUNCHES = {
+  'lazy|dreamer':'सपने देखते हो, बिस्तर नहीं छोड़ते — parallel universe में already कामयाब हो। 🌙',
+  'lazy|hustler':'अंदर hustler, बाहर "थोड़ी देर और सोने दो।" Classic conflict। 😴🔥',
+  'lazy|rebel':'Rules तोड़ते हो — खासकर alarm का। असली rebellion। 💀',
+  'lazy|chill':'Chill हो, lazy हो — दोनों एक ही हैं, chill ज़्यादा respectable लगता है। 🧊',
+  'lazy|savage':'Energy save करते हो। जब strike करते हो — deadly। 🐺',
+  'lazy|mystic':'लोग सोचते हो, तुम असल में सो रहे होते हो। फर्क नहीं। 🔮',
+  'lazy|lover_p':'"तू ही आ जा" वाले। Effort से allergy है। 💕😴',
+  'lazy|ghost':'Online हो, reply नहीं — Ghost mode on। 👻',
+  'shy|dreamer':'सपनों में confident, real world में "sorry, excuse me।" 🌙',
+  'shy|hustler':'शर्माते हो, पर काम चोरी-छुपे। एक दिन सब देखेंगे। 🔥',
+  'shy|rebel':'Quietly rules तोड़ते हो। कोई देखे न — इसलिए। 💀',
+  'shy|chill':'शांत इसलिए नहीं कि chill हो — बोलते नहीं इसलिए। 🧊',
+  'shy|savage':'जब बोलते हो — एक line में game खत्म। शर्मीले savage। 🐺',
+  'shy|mystic':'कम बोलते, ज़्यादा observe। सबकी secrets तुम्हारे पास। 🔮',
+  'shy|lover_p':'दिल में समुंदर, मुँह पर ताला। जो समझे वही पाए। 💕',
+  'shy|ghost':'Introvert + Ghost = तुम हो ही नहीं, या हो, पता नहीं। 👻',
+  'lover|dreamer':'प्यार और सपने — दोनों में डूबे। Reality check कभी नहीं। 🌙💕',
+  'lover|hustler':'दिल से प्यार, दिमाग से hustle। Goals on goals। 🔥',
+  'lover|rebel':'प्यार में भी rules नहीं। Unconventional romance specialty। 💀',
+  'lover|chill':'Easy-going lover — drama नहीं, vibes हाँ। Ideal partner। 🧊',
+  'lover|savage':'Soft outside, savage inside। Toxic करे तो पता चले। 🐺',
+  'lover|mystic':'प्यार को feel करते, explain नहीं कर सकते। Soulmate energy। 🔮',
+  'lover|lover_p':'Double lover? पूरी दुनिया तुम्हारी — सबसे प्यार। 💕💕',
+  'lover|ghost':'प्यार करते, फिर disappear। Attachment issues। थेरेपी try करो। 👻💕',
+  'silent|dreamer':'खामोश dreamer — सपने बड़े, शोर नहीं। जब होगा सब हैरान। 🌙',
+  'silent|hustler':'Quietly grind। सफलता ही सबसे बड़ा जवाब। 🔥',
+  'silent|rebel':'कहते नहीं, करते हो। Silent rebellion सबसे dangerous। 💀',
+  'silent|chill':'इतने शांत कि echo भी disturb नहीं। Zen master। 🧊',
+  'silent|savage':'जब बोलते हो, धजियाँ उड़ा देते — इसीलिए चुप। 🐺',
+  'silent|mystic':'खामोशी में राज़। तुम्हें सुनना नहीं, feel करना पड़ता। 🔮',
+  'silent|lover_p':'मोहब्बत नज़रों से। Deep। 💕',
+  'silent|ghost':'इतने silent कि लोग भूल जाते — ज़रूरत पर याद आते। 👻',
+  'boss|dreamer':'Vision boss — सपने दूसरों से execute करवाते। 🌙😎',
+  'boss|hustler':'Boss + Hustler = खुद भी करते, team को भी। कोई excuse नहीं। 🔥',
+  'boss|rebel':'Corporate rebel — rules तब follow जब convenient। 💀😎',
+  'boss|chill':'Chill boss — pressure में शांत। Rarest personality। 🧊',
+  'boss|savage':'Boss mode + savage mode = दुश्मनों के लिए nightmare। 🐺',
+  'boss|mystic':'तुम्हारी decisions कहाँ से — कोई नहीं जानता। Power। 🔮',
+  'boss|lover_p':'Boss बाहर, lover अंदर। क़रीब आए उसे real मिले। 💕',
+  'boss|ghost':'जब चाहो appear, जब चाहो vanish। Power move। 👻😎',
+  'king|dreamer':'राजा सपने देखता, empire बनाता। दोनों कर रहे हो। 👑🌙',
+  'king|hustler':'बिना permission के throne बनाते। King + Hustler। 🔥👑',
+  'king|rebel':'Rules खुद बनाते, खुद तोड़ते। Sovereign energy। 💀👑',
+  'king|chill':'शांत राजा सबसे खतरनाक। दरबार काँपता है। 🧊👑',
+  'king|savage':'माफ़ नहीं करते, भूलते भी नहीं। 🐺👑',
+  'king|mystic':'चाल कोई नहीं समझता — शतरंज का grandmaster। 🔮👑',
+  'king|lover_p':'प्यार और राज दोनों — वही असली बादशाह। 💕👑',
+  'king|ghost':'कभी दिखते, कभी नहीं — presence हमेशा feel। 👻👑',
+  'don|dreamer':'DON का dream — city नहीं, empire। 🌙🕶️',
+  'don|hustler':'DON काम नहीं करते — करवाते हैं। That\'s the difference। 🔥',
+  'don|rebel':'DON + Rebel = कोई law apply नहीं। Full freedom। 💀🕶️',
+  'don|chill':'DON को जल्दी नहीं। Time उनका wait करता। 🧊',
+  'don|savage':'DON + Savage = भगवान भी सोचे। Most dangerous। 🐺🕶️',
+  'don|mystic':'DON के तरीके mysterious। कोई trace नहीं। 🔮',
+  'don|lover_p':'DON का दिल भी होता — दुश्मन को पता नहीं। 💕🕶️',
+  'don|ghost':'Exist करते हो, proof नहीं। Power personified। 👻🕶️',
+  'warrior|dreamer':'Warrior + Dreamer = empire बनाता। Alexander energy। ⚔️🌙',
+  'warrior|hustler':'रात plan, सुबह action। No days off। ⚔️🔥',
+  'warrior|rebel':'Rules के खिलाफ लड़ने वाला — क्रांति तुमसे। ⚔️💀',
+  'warrior|chill':'जंग के बाद rest — well-deserved peace। ⚔️🧊',
+  'warrior|savage':'मैदान में कोई नहीं टिकता। Period। ⚔️🐺',
+  'warrior|mystic':'खामोश तलवार सबसे तेज़। Ancient wisdom। ⚔️🔮',
+  'warrior|lover_p':'प्यार के लिए लड़ने वाला — सबसे बड़ा योद्धा। ⚔️💕',
+  'warrior|ghost':'Suddenly vanish — सबसे deadly tactic। ⚔️👻'
+};
+
+var OSEG=[], ISEG=[];
 function mkSeg(parent, cx, cy, r1, r2, sa, ea, color){
   var s1=(sa+0.03)*Math.PI/180, e1=(ea-0.03)*Math.PI/180, ns='http://www.w3.org/2000/svg';
   var d='M'+(cx+r2*Math.cos(s1))+' '+(cy+r2*Math.sin(s1))+'A'+r2+' '+r2+' 0 0 1 '+(cx+r2*Math.cos(e1))+' '+(cy+r2*Math.sin(e1))+'L'+(cx+r1*Math.cos(e1))+' '+(cy+r1*Math.sin(e1))+'A'+r1+' '+r1+' 0 0 0 '+(cx+r1*Math.cos(s1))+' '+(cy+r1*Math.sin(s1))+'Z';
-  var p=document.createElementNS(ns,'path'); p.setAttribute('d',d); p.setAttribute('fill',color); p.setAttribute('opacity','0.45'); parent.appendChild(p);
+  var p=document.createElementNS(ns,'path'); p.setAttribute('d',d); p.setAttribute('fill',color); p.setAttribute('opacity','0.45'); parent.appendChild(p); return p;
 }
 (function(){
-  for(var i=0;i<8;i++){ mkSeg(document.getElementById('outerSegments'),150,150,110,146,i*45-90,i*45-45,HC[i]); mkSeg(document.getElementById('innerSegments'),100,100,62,96,i*45-90,i*45-45,PC[i]); }
+  for(var i=0;i<8;i++){ OSEG.push(mkSeg(document.getElementById('outerSegments'),150,150,110,146,i*45-90,i*45-45,HC[i])); ISEG.push(mkSeg(document.getElementById('innerSegments'),100,100,62,96,i*45-90,i*45-45,PC[i])); }
+  var ns='http://www.w3.org/2000/svg';
+  for(var j=0;j<30;j++){ var a=(j/30)*2*Math.PI,hw=0.08,pg=document.createElementNS(ns,'polygon'); pg.setAttribute('points',[(150+132*Math.cos(a-hw))+','+(150+132*Math.sin(a-hw)),(150+132*Math.cos(a+hw))+','+(150+132*Math.sin(a+hw)),(150+146*Math.cos(a+hw))+','+(150+146*Math.sin(a+hw)),(150+146*Math.cos(a-hw))+','+(150+146*Math.sin(a-hw))].join(' ')); pg.setAttribute('fill','#2e3040'); pg.setAttribute('stroke','rgba(255,255,255,.04)'); pg.setAttribute('stroke-width','0.5'); document.getElementById('outerTeeth').appendChild(pg); }
+  for(var k=0;k<18;k++){ var b=(k/18)*2*Math.PI,hw2=0.14,pg2=document.createElementNS(ns,'polygon'); pg2.setAttribute('points',[(100+58*Math.cos(b-hw2))+','+(100+58*Math.sin(b-hw2)),(100+58*Math.cos(b+hw2))+','+(100+58*Math.sin(b+hw2)),(100+70*Math.cos(b+hw2))+','+(100+70*Math.sin(b+hw2)),(100+70*Math.cos(b-hw2))+','+(100+70*Math.sin(b-hw2))].join(' ')); pg2.setAttribute('fill','#252632'); pg2.setAttribute('stroke','rgba(255,255,255,.04)'); pg2.setAttribute('stroke-width','0.5'); document.getElementById('innerTeeth').appendChild(pg2); }
 })();
-function resetGearbox(){ document.getElementById('chargeFill').style.width='0%'; }
-// (Skipped full spin logic text to keep it short for this block, but basically charge & spin is intact)
+
+var power=0, charging=false, chTimer=null, hit100=false, hit100T=0, outerDeg=0, innerDeg=0, spinning=false, spinRAF=null, spinOS=0, spinIS=0, spinOT=0, spinIT=0, spinDur=0, spinT0=0, a1Deg=0, a2Deg=180, arrowSpin=false, arrowRAF=null, aA1S=0, aA2S=0, aA1T=0, aA2T=0, aDur=0, aT0=0, lastTickSeg=-1;
+var outerArc=document.getElementById('outerArc'), innerArc=document.getElementById('innerArc'), chargeFill=document.getElementById('chargeFill'), chargePctEl=document.getElementById('chargePct'), gearboxWrap=document.getElementById('gearboxWrap'), reactorIcon=document.getElementById('reactorIcon');
+
+function applyEC(p){
+  var c = p<50?'#00d4ff':p<80?'#ff8c42':'#e53535', g = p<50?'rgba(0,212,255,.5)':p<80?'rgba(255,140,66,.55)':'rgba(229,53,53,.6)';
+  outerArc.setAttribute('stroke',c); innerArc.setAttribute('stroke',c);
+  outerArc.setAttribute('stroke-dasharray',((p/100)*854.5).toFixed(1)+' '+((1-p/100)*854.5).toFixed(1));
+  innerArc.setAttribute('stroke-dasharray',((p/100)*515.2).toFixed(1)+' '+((1-p/100)*515.2).toFixed(1));
+  chargeFill.style.width=Math.round(p)+'%'; chargeFill.style.background=c; chargeFill.style.boxShadow='0 0 10px '+g;
+  chargePctEl.style.color=c; chargePctEl.textContent=Math.round(p)+'%';
+  gearboxWrap.style.filter=p>0?'drop-shadow(0 0 '+Math.round(p*0.22)+'px '+g+')':'';
+}
+function setGearRot(od,id_){ document.getElementById('outerGroup').setAttribute('transform','rotate('+od+' 150 150)'); document.getElementById('innerGroup').setAttribute('transform','rotate('+id_+' 100 100)'); }
+function setArrowRot(a1,a2){ document.getElementById('arrow1').setAttribute('transform','rotate('+a1+' 150 150)'); document.getElementById('arrow2').setAttribute('transform','rotate('+a2+' 150 150)'); }
+function resetSegments(){ for(var k=0;k<8;k++){ if(OSEG[k]){ OSEG[k].setAttribute('opacity','0.45'); OSEG[k].setAttribute('stroke','transparent'); OSEG[k].setAttribute('stroke-width','1.5'); } if(ISEG[k]){ ISEG[k].setAttribute('opacity','0.45'); ISEG[k].setAttribute('stroke','transparent'); ISEG[k].setAttribute('stroke-width','1.5'); } } }
+function highlightSegments(i1,i2){ for(var k=0;k<8;k++){ if(OSEG[k]){ var on=(k===i1); OSEG[k].setAttribute('opacity',on?'0.95':'0.1'); OSEG[k].setAttribute('stroke',on?'#ffffff':'transparent'); OSEG[k].setAttribute('stroke-width',on?'2':'0'); } if(ISEG[k]){ var inn=(k===i2); ISEG[k].setAttribute('opacity',inn?'0.95':'0.1'); ISEG[k].setAttribute('stroke',inn?'#ffffff':'transparent'); ISEG[k].setAttribute('stroke-width',inn?'2':'0'); } } }
+
+function resetGearbox(){
+  charging=false; clearInterval(chTimer); spinning=false; cancelAnimationFrame(spinRAF); arrowSpin=false; cancelAnimationFrame(arrowRAF);
+  power=0; applyEC(0); setGearRot(0,0); setArrowRot(0,180); reactorIcon.textContent='HOLD'; reactorIcon.style.color='';
+  gearboxWrap.classList.remove('overload','spinning'); resetSegments(); document.getElementById('vibeCard').classList.remove('show');
+}
+
+document.getElementById('gearOuterSvg').addEventListener('pointerdown', e=>{
+  if(charging)return; charging=true; hit100=false; resetSegments(); gearboxWrap.classList.remove('spinning');
+  try{ e.target.setPointerCapture(e.pointerId); } catch(_){}
+  reactorIcon.textContent='CHARGE'; reactorIcon.style.color='#00d4ff';
+  chTimer=setInterval(()=>{
+    power=Math.min(100,power+0.7+2.3*Math.pow(power/100,2)); applyEC(power);
+    outerDeg+=0.5+(power/100)*1.5; innerDeg-=0.4+(power/100)*1.0; setGearRot(outerDeg,innerDeg);
+    if(power>=100&&!hit100){ hit100=true; hit100T=Date.now(); buzz(20); gearboxWrap.classList.add('overload'); reactorIcon.textContent='100%'; reactorIcon.style.color='#e53535'; }
+  }, 28);
+});
+
+function releaseCharge(){
+  if(!charging) return; charging=false; clearInterval(chTimer);
+  gearboxWrap.classList.remove('overload'); gearboxWrap.classList.add('spinning');
+  document.getElementById('vibeCard').classList.remove('show'); resetSegments();
+  var isPerfect = hit100 && (Date.now()-hit100T)<=150; var sm = isPerfect?3:1;
+  spinDur = (1800+(power/100)*5200)*(isPerfect?0.7:1); spinOS=outerDeg; spinIS=innerDeg;
+  spinOT = outerDeg+(2+(power/100)*14)*sm*360; spinIT = innerDeg-(2+(power/100)*14)*sm*360*0.72;
+  spinning=true; spinT0=performance.now(); spinRAF=requestAnimationFrame(doSpinRAF);
+  aA1S=a1Deg; aA2S=a2Deg; aA1T=a1Deg+(3+(power/100)*10)*sm*360; aA2T=a2Deg-(3+(power/100)*10)*sm*360;
+  aDur=spinDur*(0.5+Math.random()*0.4); arrowSpin=true; aT0=performance.now(); arrowRAF=requestAnimationFrame(doArrowRAF);
+  if(power>5) buzz(Math.min(40,Math.round(power/3)));
+  if(isPerfect){ buzz([50,30,50,30,100]); document.getElementById('perfectText').classList.add('show'); setTimeout(()=>document.getElementById('perfectText').classList.remove('show'),1400); reactorIcon.textContent='PERFECT!'; reactorIcon.style.color='#d4a853'; }
+  else { reactorIcon.textContent='SPIN'; reactorIcon.style.color='#888'; }
+  power=0; applyEC(0);
+}
+document.getElementById('gearOuterSvg').addEventListener('pointerup', releaseCharge);
+document.getElementById('gearOuterSvg').addEventListener('pointercancel', releaseCharge);
+document.getElementById('gearOuterSvg').addEventListener('pointerleave', releaseCharge);
+
+function easeOut(t){ return 1-Math.pow(1-t,3); }
+function doSpinRAF(ts){
+  if(!spinning)return; var t=Math.min((ts-spinT0)/spinDur,1), e=easeOut(t);
+  outerDeg=spinOS+(spinOT-spinOS)*e; innerDeg=spinIS+(spinIT-spinIS)*e; setGearRot(outerDeg,innerDeg);
+  if(t<1) spinRAF=requestAnimationFrame(doSpinRAF); else{ spinning=false; if(!arrowSpin){reactorIcon.textContent='HOLD'; reactorIcon.style.color='';} }
+}
+function doArrowRAF(ts){
+  if(!arrowSpin)return; var t=Math.min((ts-aT0)/aDur,1), e=easeOut(t);
+  a1Deg=aA1S+(aA1T-aA1S)*e; a2Deg=aA2S+(aA2T-aA2S)*e; setArrowRot(a1Deg,a2Deg);
+  if(t>0.35){ var seg=Math.floor((((a1Deg%360)+360)%360)/45)%8; if(seg!==lastTickSeg){ lastTickSeg=seg; buzz(Math.round(3+8*(1-t))); } }
+  if(t<1) arrowRAF=requestAnimationFrame(doArrowRAF); else{ arrowSpin=false; gearboxWrap.classList.remove('spinning'); buzz([0,30,50,30,80]); showVibeResult(); }
+}
+function showVibeResult(){
+  var i1 = Math.floor((((a1Deg%360)+360)%360)/45)%8, i2 = Math.floor((((a2Deg%360)+360)%360)/45)%8;
+  var h = HABIT_LIST[i1], p2 = PERS_LIST[i2];
+  highlightSegments(i1,i2);
+  document.getElementById('vibeLeftEmoji').textContent=h.emoji; document.getElementById('vibeLeftLabel').textContent=h.label;
+  document.getElementById('vibeRightEmoji').textContent=p2.emoji; document.getElementById('vibeRightLabel').textContent=p2.label;
+  var punch = PUNCHES[h.id+'|'+p2.id] || 'तुम्हारी vibe unique है — dictionary में नहीं। 🔥';
+  document.getElementById('vibePunch').textContent = punch;
+  var c1=HC[i1], c2=PC[i2], lh=document.getElementById('vibeLeftHalf'), rh=document.getElementById('vibeRightHalf');
+  lh.style.borderColor=c1; lh.style.boxShadow='inset 0 0 20px '+c1+'2e, 0 0 16px '+c1+'22'; document.getElementById('vibeLeftLabel').style.color=c1;
+  rh.style.borderColor=c2; rh.style.boxShadow='inset 0 0 20px '+c2+'2e, 0 0 16px '+c2+'22'; document.getElementById('vibeRightLabel').style.color=c2;
+  var msg='⚡ आज मेरी VIBE: '+h.label+' × '+p2.label+'\n"'+punch+'"\n\n👉 तुम्हारी क्या है? Spin करो: https://relax.vhoriginal.com/';
+  document.getElementById('vibeShare').onclick=()=>window.open('https://wa.me/?text='+encodeURIComponent(msg),'_blank');
+  var vc = document.getElementById('vibeCard'); vc.classList.add('show'); setTimeout(()=>vc.scrollIntoView({behavior:'smooth',block:'nearest'}), 150);
+}
 
 /* ════════════════════════════════════════════════════════
-   ZEN PLAYGROUND (4 Games)
+   ZEN PLAYGROUND (Mini Games Fixed Touch)
 ════════════════════════════════════════════════════════ */
 function initPlayground(){
   var tabs = ['tabBubble','tabRipple','tabAura','tabSand'], panels = ['panelBubble','panelRipple','panelAura','panelSand'];
@@ -814,7 +1046,7 @@ function initPlayground(){
   if(!bg.children.length){
     for(var i=0;i<25;i++){
       var b = document.createElement('div'); b.className='bubble';
-      b.onclick = function(){ if(this.classList.contains('popped'))return; this.classList.add('popped'); buzz([15]); };
+      b.onpointerdown = function(){ if(this.classList.contains('popped'))return; this.classList.add('popped'); buzz([15]); };
       bg.appendChild(b);
     }
   }
@@ -833,7 +1065,7 @@ function initPlayground(){
     }
     requestAnimationFrame(drawR);
   } drawR();
-  cR.addEventListener('pointerdown', e=>{ var rect=cR.getBoundingClientRect(); ripples.push({x:e.clientX-rect.left, y:e.clientY-rect.top, radius:0, alpha:1}); buzz([5]); });
+  cR.addEventListener('pointerdown', e=>{ e.preventDefault(); var rect=cR.getBoundingClientRect(); ripples.push({x:e.clientX-rect.left, y:e.clientY-rect.top, radius:0, alpha:1}); buzz([5]); });
 
   /* Aura Align */
   var aWrap = document.getElementById('auraWrap'), aBtn = document.getElementById('auraBtn'), isAura = false;
@@ -849,19 +1081,20 @@ function initPlayground(){
     }
     requestAnimationFrame(updateAura);
   } updateAura();
-  aBtn.addEventListener('pointerdown', ()=>{ isAura=true; buzz([10]); });
+  aBtn.addEventListener('pointerdown', e=>{ e.preventDefault(); isAura=true; buzz([10]); });
   aBtn.addEventListener('pointerup', ()=>{ isAura=false; pos=[{x:(Math.random()-.5)*100,y:(Math.random()-.5)*100},{x:(Math.random()-.5)*100,y:(Math.random()-.5)*100},{x:(Math.random()-.5)*100,y:(Math.random()-.5)*100}]; });
 
   /* Sand */
   var cS = document.getElementById('canvasSand'), ctxS = cS.getContext('2d'), isDrawing=false, lastS={x:0,y:0};
   function resizeS(){ cS.width=cS.offsetWidth; cS.height=cS.offsetHeight; } resizeS();
   ctxS.lineCap = 'round'; ctxS.lineJoin = 'round'; ctxS.lineWidth = 3; ctxS.shadowBlur = 4; ctxS.shadowColor = '#d4a853'; ctxS.strokeStyle = '#221c10';
-  cS.addEventListener('pointerdown', e=>{ isDrawing=true; var r=cS.getBoundingClientRect(); lastS={x:e.clientX-r.left, y:e.clientY-r.top}; });
+  cS.addEventListener('pointerdown', e=>{ e.preventDefault(); isDrawing=true; var r=cS.getBoundingClientRect(); lastS={x:e.clientX-r.left, y:e.clientY-r.top}; try{cS.setPointerCapture(e.pointerId);}catch(_){} });
   cS.addEventListener('pointerup', ()=>isDrawing=false);
+  cS.addEventListener('pointercancel', ()=>isDrawing=false);
   cS.addEventListener('pointermove', e=>{
-    if(!isDrawing) return; var r=cS.getBoundingClientRect(), nx=e.clientX-r.left, ny=e.clientY-r.top;
+    if(!isDrawing) return; e.preventDefault();
+    var r=cS.getBoundingClientRect(), nx=e.clientX-r.left, ny=e.clientY-r.top;
     ctxS.beginPath(); ctxS.moveTo(lastS.x, lastS.y); ctxS.lineTo(nx, ny); ctxS.stroke();
-    // parallel lines
     ctxS.beginPath(); ctxS.moveTo(lastS.x+8, lastS.y+8); ctxS.lineTo(nx+8, ny+8); ctxS.stroke();
     ctxS.beginPath(); ctxS.moveTo(lastS.x-8, lastS.y-8); ctxS.lineTo(nx-8, ny-8); ctxS.stroke();
     lastS={x:nx, y:ny};
@@ -870,10 +1103,128 @@ function initPlayground(){
 }
 
 /* ════════════════════════════════════════════════════════
-   RELAXATION & BREATHING
+   RELAXATION SUITE
 ════════════════════════════════════════════════════════ */
-document.getElementById('tabBreath').onclick=function(){ document.getElementById('panelBreath').classList.add('on'); document.getElementById('panelGround').classList.remove('on'); document.getElementById('panelLetgo').classList.remove('on'); this.classList.add('active'); };
-// (Rest of the tabs logic applies similarly to the original).
+var tTabs=['tabBreath','tabGround','tabLetgo'], tPans=['panelBreath','panelGround','panelLetgo'];
+tTabs.forEach((t,i)=>{
+  document.getElementById(t).onclick=function(){
+    tTabs.forEach(id=>document.getElementById(id).classList.remove('active')); tPans.forEach(id=>document.getElementById(id).classList.remove('on'));
+    this.classList.add('active'); document.getElementById(tPans[i]).classList.add('on'); if(i!==1) stopHeartbeat();
+  };
+});
+
+/* Breathing */
+var bRun=false, bIdx=0, bTimer=null;
+var B_PHASES = [{l:'INHALE',s:'4 सेकंड',d:4000,h:[5]},{l:'HOLD',s:'7 सेकंड',d:7000,h:[3,50,3]},{l:'EXHALE',s:'8 सेकंड',d:8000,h:[5]}];
+function runBreath(){
+  if(!bRun)return; var p=B_PHASES[bIdx];
+  document.getElementById('breathPhaseLabel').textContent=p.l; document.getElementById('breathPhaseSub').textContent=p.s; buzz(p.h);
+  bTimer=setTimeout(()=>{ bIdx=(bIdx+1)%3; runBreath(); }, p.d);
+}
+document.getElementById('breathToggle').onclick=function(){
+  bRun=!bRun; this.textContent=bRun?'⏸ PAUSE':'▶ START'; this.classList.toggle('running',bRun);
+  document.getElementById('breathSphere').classList.toggle('paused',!bRun); document.getElementById('breathWrap').classList.toggle('paused',!bRun); document.getElementById('breathRing').classList.toggle('paused',!bRun);
+  if(bRun)runBreath(); else clearTimeout(bTimer);
+};
+document.getElementById('breathReset').onclick=function(){
+  bRun=false; bIdx=0; clearTimeout(bTimer);
+  document.getElementById('breathPhaseLabel').textContent=B_PHASES[0].l; document.getElementById('breathPhaseSub').textContent=B_PHASES[0].s;
+  var bs=document.getElementById('breathSphere'), br=document.getElementById('breathRing');
+  bs.style.animation='none'; void bs.offsetWidth; bs.style.animation=''; br.style.animation='none'; void br.offsetWidth; br.style.animation='';
+  document.getElementById('breathToggle').textContent='▶ START'; document.getElementById('breathToggle').classList.remove('running'); buzz(10);
+};
+
+/* Heartbeat */
+var hbBeat=false, hbInt=null, hbZone=document.getElementById('hbZone');
+function startHeartbeat(){ if(hbBeat)return; hbBeat=true; hbZone.classList.add('beating'); document.getElementById('hbBgFlash').classList.add('beat'); document.getElementById('hbStatus').textContent='💜 Feel it…'; buzz([60,60,60]); hbInt=setInterval(()=>buzz([60,60,60]),1000); }
+function stopHeartbeat(){ if(!hbBeat)return; hbBeat=false; hbZone.classList.remove('beating'); document.getElementById('hbBgFlash').classList.remove('beat'); document.getElementById('hbStatus').textContent='दबाकर रखें…'; clearInterval(hbInt); buzz([5]); }
+hbZone.onpointerdown=e=>{ try{hbZone.setPointerCapture(e.pointerId);}catch(_){} startHeartbeat(); };
+hbZone.onpointerup=stopHeartbeat; hbZone.onpointercancel=stopHeartbeat; hbZone.onpointerleave=()=>stopHeartbeat();
+
+/* Let Go */
+var lgIn=document.getElementById('letgoInput'), lgBtn=document.getElementById('letgoBtn');
+lgIn.oninput=()=>lgBtn.disabled=(lgIn.value.trim().length===0);
+lgBtn.onclick=function(){
+  if(lgIn.value.trim().length===0)return;
+  lgBtn.disabled=true; lgIn.classList.add('burning'); buzz([10,40,10,40,20,80]);
+  var ash=document.createElement('div'); ash.className='letgo-ash'; ash.textContent='🌫️'; document.getElementById('letgoWrap').appendChild(ash);
+  setTimeout(()=>{
+    lgIn.classList.remove('burning'); lgIn.value=''; ash.remove();
+    var c=document.getElementById('letgoConfirm'); c.textContent='✨ जाने दिया गया — मन हल्का हो।'; c.classList.remove('show'); void c.offsetWidth; c.classList.add('show');
+    setTimeout(()=>{ c.classList.remove('show'); c.textContent=''; },2600); buzz([15]);
+  }, 900);
+};
+
+/* ════════════════════════════════════════════════════════
+   WP REST API FEED (RESTORED EXACTLY)
+════════════════════════════════════════════════════════ */
+var API = 'https://vhoriginal.com/wp-json/wp/v2';
+function firstImg(h){ var m = /<img[^>]+src=["']([^"']+)["']/i.exec(h||''); return m ? m[1] : null; }
+function thumb(post){
+  try{
+    var em=post._embedded||{}, fm=em['wp:featuredmedia']&&em['wp:featuredmedia'][0];
+    if(fm){
+      if(fm.media_details&&fm.media_details.sizes){
+        var s=fm.media_details.sizes, pk=s.medium_large||s.large||s.medium||s.full;
+        if(pk&&pk.source_url) return pk.source_url;
+      }
+      if(fm.source_url) return fm.source_url;
+    }
+  } catch(e){}
+  return firstImg(post.content&&post.content.rendered);
+}
+function decode(t){ var d=document.createElement('textarea'); d.innerHTML=t||''; return d.value; }
+function makeCard(post, big, badge){
+  var img=thumb(post); if(!img) return null;
+  var a=document.createElement('a');
+  a.href=post.link; a.target='_blank'; a.rel='noopener'; a.className=big?'feat':'pcard';
+  var html='<div class="ph"><img loading="lazy" src="'+img+'" alt=""></div>';
+  if(badge) html+='<span class="badge">'+badge+'</span>';
+  html+='<div class="ttl">'+decode(post.title&&post.title.rendered)+'</div>';
+  a.innerHTML=html; return a;
+}
+function resolveId(slug){
+  return fetch(API+'/categories?slug='+encodeURIComponent(slug))
+    .then(r=>r.ok?r.json():[])
+    .then(j=>(j&&j[0]&&j[0].id)||null)
+    .catch(()=>null);
+}
+function getPosts(slug){
+  return resolveId(slug).then(id=>{
+    var url=id
+      ?API+'/posts?categories='+id+'&per_page=12&_embed=wp:featuredmedia,wp:term'
+      :API+'/posts?per_page=40&_embed=wp:featuredmedia,wp:term';
+    return fetch(url).then(r=>{ if(!r.ok) throw new Error('http'); return r.json(); })
+      .then(posts=>{
+        if(!id){
+          posts=posts.filter(p=>{
+            try{
+              var g=(p._embedded&&p._embedded['wp:term'])||[];
+              for(var a=0;a<g.length;a++) for(var t=0;t<g[a].length;t++) if(g[a][t].slug===slug) return true;
+            } catch(e){}
+            return false;
+          });
+        }
+        return posts;
+      });
+  });
+}
+function loadCat(sid, slug, badge){
+  var sec=document.getElementById(sid), bb=sec.querySelector('.big'), gr=sec.querySelector('.grid');
+  getPosts(slug).then(posts=>{
+    var cards=[];
+    for(var i=0;i<posts.length&&cards.length<5;i++){ var el=makeCard(posts[i],cards.length===0,badge); if(el) cards.push(el); }
+    if(!cards.length) throw new Error('empty');
+    bb.innerHTML=''; gr.innerHTML='';
+    bb.appendChild(cards[0]);
+    for(var k=1;k<cards.length;k++) gr.appendChild(cards[k]);
+  }).catch(()=>{
+    bb.innerHTML='';
+    gr.innerHTML='<a class="fallback" href="https://vhoriginal.com" target="_blank" rel="noopener">और पढ़िए — vhoriginal.com →</a>';
+  });
+}
+var io = ('IntersectionObserver' in window) ? new IntersectionObserver((ents,obs)=>{ ents.forEach(e=>{ if(e.isIntersecting){ obs.unobserve(e.target); if(e.target._load) e.target._load(); } }); }, {rootMargin:'250px'}) : null;
+function setupCat(sid, slug, badge){ var sec=document.getElementById(sid); sec._load=()=>{ loadCat(sid,slug,badge); }; if(io) io.observe(sec); else sec._load(); }
 
 })(); 
 </script>
