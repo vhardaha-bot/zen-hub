@@ -9,14 +9,13 @@
   <title>Zen Hub — Relax & Reset</title>
   <meta name="application-name" content="Zen Hub">
   <meta name="apple-mobile-web-app-title" content="Zen Hub">
-  
-  <meta name="description" content="Zen Hub 2.0 — 10-in-1 डिजिटल रिलैक्सेशन टूल। जाप माला, क्वांटम गियरबॉक्स, Zen Playground और Haptic Therapy।">
+  <meta name="description" content="Zen Hub 2.0 — 10-in-1 डिजिटल रिलैक्सेशन OS। जाप माला, क्वांटम गियरबॉक्स, Zen Playground और Haptic Therapy।">
   <link rel="canonical" href="https://relax.vhoriginal.com/">
   <meta name="robots" content="max-image-preview:large">
   
   <meta property="og:type" content="website">
   <meta property="og:title" content="Zen Hub — 10-in-1 Relaxation OS | Vista Hub">
-  <meta property="og:description" content="जाप माला · क्वांटम गियरबॉक्स · Zen Playground — मुफ़्त PWA।">
+  <meta property="og:description" content="जाप माला · 4-गियरबॉक्स · Zen Playground — मुफ़्त PWA।">
   <meta property="og:url" content="https://relax.vhoriginal.com/">
   <meta property="og:image" content="https://relax.vhoriginal.com/icon-512.png">
   <meta property="og:image:width" content="512"><meta property="og:image:height" content="512">
@@ -86,7 +85,6 @@ body {
 .card:active { transform:scale(.97); }
 .card:hover { border-color:color-mix(in srgb, var(--glow) 60%, transparent); box-shadow:0 0 22px -6px var(--glow), 0 10px 30px -16px #000; }
 
-/* Half tiles */
 .card:not(.hero):not(.banner) { flex-direction:column; align-items:flex-start; min-height:96px; justify-content:flex-end; }
 .hero { min-height:84px; }
 .hero .ic { font-size:34px; }
@@ -111,7 +109,7 @@ body {
 .canvas-wrap canvas { display:block; width:100%; height:100%; touch-action:none; }
 .game-hint { text-align:center; font-size:11px; color:var(--m); margin-bottom:12px; letter-spacing:1px; font-family:'Rajdhani',sans-serif; text-transform:uppercase; }
 
-/* Aura specific */
+/* ── Aura specific ── */
 .aura-ring { position:absolute; width:120px; height:120px; border-radius:50%; mix-blend-mode:screen; filter:blur(8px); opacity:0.8; transition:transform 0.1s linear; pointer-events:none; }
 .aura-r1 { background:radial-gradient(circle, #ff0055, transparent 70%); }
 .aura-r2 { background:radial-gradient(circle, #00d4ff, transparent 70%); }
@@ -119,13 +117,15 @@ body {
 .aura-btn { position:absolute; bottom:20px; left:50%; transform:translateX(-50%); background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.2); color:var(--h); font-family:'Cinzel',serif; padding:10px 24px; border-radius:30px; letter-spacing:2px; font-size:12px; font-weight:700; cursor:pointer; user-select:none; z-index:20; backdrop-filter:blur(4px); }
 .aura-btn:active { background:rgba(255,255,255,.1); transform:translateX(-50%) scale(0.95); }
 
-/* Bubble Grid */
-.bubble-grid { display:grid; grid-template-columns:repeat(5, 1fr); gap:12px; max-width:280px; margin:20px auto; padding:10px; touch-action:none; }
+/* ── Bubble Grid (48 Bubbles) ── */
+.bubble-grid { display:grid; grid-template-columns:repeat(6, 1fr); grid-template-rows:repeat(8, 1fr); gap:8px; aspect-ratio:6/8; width:100%; max-width:360px; margin:20px auto; padding:10px; touch-action:none; }
 .bubble { aspect-ratio:1; border-radius:50%; background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.1); cursor:pointer; touch-action:none; transition:transform .15s cubic-bezier(.34,1.56,.64,1); box-shadow:inset 0 2px 4px rgba(0,0,0,.5); }
 .btn-reset-play { display:block; margin:20px auto 0; background:none; border:1px solid rgba(37,211,102,.4); color:var(--green); padding:8px 20px; border-radius:4px; font-family:'Rajdhani',sans-serif; font-size:12px; font-weight:700; letter-spacing:2px; text-transform:uppercase; cursor:pointer; transition:transform .1s; }
 .btn-reset-play:active { transform:scale(.95); }
 
-/* (Include All Other App CSS: Mala, Gearbox, Relax, Share, Ads exactly as before) */
+/* ═══════════════════════════════════════
+   TOOLS UI (MALA, GEARBOX, RELAX)
+═══════════════════════════════════════ */
 .tool-quote { min-height:44px; text-align:center; font-size:15px; line-height:1.6; font-weight:600; padding:8px 16px; margin-bottom:14px; opacity:0; transform:translateY(4px); transition:opacity .5s,transform .5s; }
 .tool-quote.show { opacity:1; transform:none; }
 .tool-quote::after { content:''; display:block; width:36px; height:2px; margin:7px auto 0; background:linear-gradient(90deg,transparent,var(--gold),transparent); border-radius:2px; opacity:.55; }
@@ -165,11 +165,10 @@ body {
 .mala-hint-small { font-size:11px; color:rgba(122,118,112,.55); letter-spacing:.3px; }
 .reset-btn { font-size:11px; color:var(--m); background:rgba(255,255,255,.04); border:1px solid var(--line); padding:6px 14px; border-radius:4px; cursor:pointer; font-family:'Hind',sans-serif; }
 
-/* Gearbox */
+/* 4-Gear System (Mechanical Interlocking) */
 .gear-tool { background:linear-gradient(165deg,#0e0e12,#090909); border:1px solid rgba(0,212,255,.1); border-radius:4px; padding:20px 10px 24px; box-shadow:0 20px 50px rgba(0,0,0,.6),inset 0 1px 0 rgba(0,212,255,.06); margin-bottom:14px; text-align:center; position:relative; }
 .gearbox-wrap { position:relative; width:min(340px,96vw); height:min(340px,96vw); margin:0 auto 16px; touch-action:none; overscroll-behavior:none; }
-.gear-outer-svg { position:absolute; inset:0; width:100%; height:100%; touch-action:none; cursor:pointer; z-index:1; }
-.gear-inner-svg { position:absolute; top:20%; left:20%; width:60%; height:60%; z-index:2; pointer-events:none; }
+.gear-svg-container { position:absolute; inset:0; width:100%; height:100%; touch-action:none; cursor:pointer; z-index:1; }
 .gear-arrows { position:absolute; inset:0; z-index:5; pointer-events:none; }
 .gear-reactor { position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); z-index:6; pointer-events:none; width:60px; height:60px; border-radius:50%; background:radial-gradient(circle at 40% 35%,#1c1d24,#060608); border:1px solid rgba(255,255,255,.07); box-shadow:0 0 0 2px rgba(0,0,0,.9),inset 0 0 12px rgba(0,0,0,.9); display:flex; align-items:center; justify-content:center; }
 .gear-reactor-icon { font-family:'Rajdhani',sans-serif; font-size:11px; font-weight:700; letter-spacing:1.5px; color:#5a5f70; text-transform:uppercase; transition:color .3s; }
@@ -183,20 +182,21 @@ body {
 .charge-track::before { content:''; position:absolute; inset:0; z-index:2; pointer-events:none; background:repeating-linear-gradient(90deg,transparent 0,transparent 9px,rgba(0,0,0,.4) 9px,rgba(0,0,0,.4) 10px); }
 .charge-fill { height:100%; width:0%; position:relative; background:var(--cyan); box-shadow:0 0 10px rgba(0,212,255,.4); }
 .gear-hint { font-size:11.5px; color:var(--m); letter-spacing:.4px; margin-top:8px; }
-.gearbox-wrap.spinning { filter:drop-shadow(0 0 28px rgba(0,212,255,.38)); }
-#outerSegments path,#innerSegments path { transition:opacity .55s ease,stroke .55s ease,stroke-width .55s ease; }
 
 /* Vibe Card */
 .vibe-card { display:none; margin-top:14px; background:linear-gradient(160deg,#0e0e14,#080810); border:1px solid rgba(0,212,255,.18); border-radius:4px; padding:20px 16px 16px; text-align:center; clip-path:polygon(0 0,calc(100% - 10px) 0,100% 10px,100% 100%,10px 100%,0 calc(100% - 10px)); }
-.vibe-card.show { display:block; animation:viewIn .45s ease; }
+.vibe-card.show { display:block; animation:vibeIn .45s cubic-bezier(.22,.61,.36,1); }
+@keyframes vibeIn { from{opacity:0;transform:translateY(12px) scale(.97)} to{opacity:1;transform:none} }
 .vibe-header { font-family:'Rajdhani',sans-serif; font-size:11px; letter-spacing:3px; text-transform:uppercase; color:var(--m); margin-bottom:12px; }
 .vibe-top { display:flex; align-items:stretch; gap:0; margin-bottom:14px; }
-.vibe-half { flex:1; padding:14px 8px 10px; background:rgba(255,255,255,.03); border:1px solid rgba(255,255,255,.06); border-radius:4px; transition:all .5s ease; }
+.vibe-half { flex:1; padding:14px 8px 10px; background:rgba(255,255,255,.03); border:1px solid rgba(255,255,255,.06); border-radius:4px; transition:border-color .5s ease, box-shadow .5s ease; }
 .vibe-half:first-child { border-radius:4px 0 0 4px; border-right:none; } .vibe-half:last-child { border-radius:0 4px 4px 0; border-left:none; }
 .vibe-tag { font-family:'Rajdhani',sans-serif; font-size:9px; letter-spacing:2px; text-transform:uppercase; margin-bottom:5px; opacity:.5; }
+.vibe-half:first-child .vibe-tag { color:var(--orange); } .vibe-half:last-child .vibe-tag { color:var(--cyan); }
 .vibe-emoji { font-size:34px; line-height:1; margin-bottom:6px; }
-.vibe-lbl { font-family:'Cinzel',serif; font-size:14px; font-weight:700; letter-spacing:2px; transition:color .5s ease; }
-.vibe-x { font-family:'Rajdhani',sans-serif; font-size:18px; font-weight:700; color:var(--m); padding:0 8px; display:flex; align-items:center; }
+.vibe-lbl { font-family:'Cinzel',serif; font-size:14px; font-weight:700; letter-spacing:2px; text-transform:uppercase; transition:color .5s ease; }
+.vibe-half:first-child .vibe-lbl { color:var(--gold3); } .vibe-half:last-child .vibe-lbl { color:var(--cyan); }
+.vibe-x { font-family:'Rajdhani',sans-serif; font-size:18px; font-weight:700; color:var(--m); padding:0 8px; display:flex; align-items:center; flex:none; }
 .vibe-punch { font-size:13.5px; font-weight:600; color:var(--b); line-height:1.7; margin-bottom:14px; padding:12px 14px; background:rgba(255,255,255,.03); border-left:3px solid var(--gold); border-radius:0 4px 4px 0; text-align:left; }
 
 /* Relaxation Panels */
@@ -245,8 +245,16 @@ body {
 #perfectText.show { opacity:1; transform:translate(-50%,-50%) scale(1); }
 #flash { position:fixed; left:50%; top:36%; transform:translate(-50%,-50%) scale(.9); background:linear-gradient(135deg,#1a1408,#1e1608); border:1px solid rgba(212,168,83,.5); color:var(--gold3); font-family:'Cinzel',serif; font-weight:700; padding:14px 24px; border-radius:4px; opacity:0; pointer-events:none; z-index:60; transition:all .3s; font-size:16px; letter-spacing:2px; text-align:center; }
 #flash.show { opacity:1; transform:translate(-50%,-50%) scale(1); }
-.share-bar { display:flex; gap:10px; margin:0 0 12px; }
-.share-bar a,.share-bar button { flex:1; display:flex; align-items:center; justify-content:center; gap:6px; height:46px; border-radius:4px; font-family:'Hind',sans-serif; font-size:13px; font-weight:700; cursor:pointer; text-decoration:none; border:1px solid transparent; }
+
+/* TOAST (Double Back to Exit) */
+#toastMsg { position:fixed; bottom:30px; left:50%; transform:translateX(-50%); background:rgba(0,0,0,0.85); color:#fff; padding:12px 24px; border-radius:30px; border:1px solid rgba(255,255,255,0.1); font-size:13px; z-index:9999; opacity:0; transition:opacity 0.3s; pointer-events:none; font-family:'Hind',sans-serif; }
+#toastMsg.show { opacity:1; }
+
+/* FIX: Share buttons flex-wrap */
+.share-bar { display:flex; flex-wrap:wrap; gap:10px; justify-content:center; margin:0 0 12px; }
+.share-bar > * { flex:1 1 calc(50% - 10px); min-width:140px; display:flex; align-items:center; justify-content:center; gap:6px; height:46px; border-radius:4px; font-family:'Hind',sans-serif; font-size:13px; font-weight:700; cursor:pointer; text-decoration:none; border:1px solid transparent; transition:transform .12s; }
+@media(max-width:340px){ .share-bar > * { flex-basis:100%; } }
+
 .sh-wa { background:linear-gradient(135deg,#25d366,#1da851); color:#06301a; box-shadow:0 5px 16px rgba(37,211,102,.22); }
 .sh-copy { background:rgba(255,255,255,.04); color:var(--h); border-color:var(--line); }
 .install { display:flex; gap:10px; align-items:center; background:rgba(255,255,255,.03); border:1px solid var(--line); border-radius:4px; padding:11px 12px; color:var(--b); font-size:12.5px; line-height:1.5; margin-bottom:18px; }
@@ -275,12 +283,13 @@ body {
 <div id="hbBgFlash"></div>
 <div id="flash"></div>
 <div id="perfectText">⚡ PERFECT ⚡</div>
+<div id="toastMsg"></div>
 
 <div class="wrap">
   <h1 class="brand">ZEN HUB <span class="brand-badge">2.0</span></h1>
   <div class="tagline">Ancient Divine Tech · Vista Hub</div>
 
- <div class="view on" id="lobby">
+  <div class="view on" id="lobby">
     <main class="lobby">
       <a class="card hero full" style="--glow:#e53935" id="btnMala">
         <span class="ic">🕉️</span>
@@ -290,18 +299,14 @@ body {
         <span class="ic">⚙️</span>
         <div class="meta"><h2>Quantum Gearbox</h2><p>Spin · Decide · Let go</p></div>
       </a>
-
       <a class="card" style="--glow:#ff2d9b" id="btnBubble"><span class="ic">🫧</span><h3>Bubble Wrap</h3></a>
       <a class="card" style="--glow:#ffb300" id="btnSand"><span class="ic">🏖️</span><h3>Sand Draw</h3></a>
       <a class="card" style="--glow:#18e0c8" id="btnRipple"><span class="ic">💧</span><h3>Water Ripples</h3></a>
       <a class="card" style="--glow:#9d6bff" id="btnAura"><span class="ic">🌀</span><h3>Aura Focus</h3></a>
-      
       <a class="card" style="--glow:#5bd34c" id="btnRelax"><span class="ic">🌬️</span><h3>Deep Relax</h3></a>
-      
       <a class="card" style="--glow:#ff6d3a" href="https://lucky-number.vhoriginal.com" target="_blank" rel="noopener">
         <span class="ic">🎲</span><h3>Lucky Number</h3><span class="ext">↗</span>
       </a>
-
       <a class="card banner full" style="--glow:#39c0ff" href="https://mausam.vhoriginal.com" target="_blank" rel="noopener">
         <span class="ic">⛅</span><div class="meta"><h3>Local Weather</h3><p>आज का मौसम</p></div><span class="ext">↗</span>
       </a>
@@ -310,7 +315,6 @@ body {
       </a>
     </main>
   </div>
-  </main>
 
   <div class="view" id="app">
     <button class="back" id="backBtn" type="button">‹ Dashboard पर जाएँ</button>
@@ -344,25 +348,8 @@ body {
       <div class="tool-quote gear-accent" id="gearQuote"></div>
       <div class="gear-tool">
         <div class="gearbox-wrap" id="gearboxWrap">
-          <svg class="gear-outer-svg" id="gearOuterSvg" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
-            <defs><radialGradient id="ogR" cx="40%" cy="35%"><stop offset="0%" stop-color="#2e2f3a"/><stop offset="100%" stop-color="#0c0c12"/></radialGradient></defs>
-            <g id="outerGroup" transform="rotate(0 150 150)">
-              <circle cx="150" cy="150" r="148" fill="url(#ogR)" stroke="rgba(255,255,255,.05)" stroke-width="1"/>
-              <g id="outerSegments"></g><g id="outerTeeth"></g>
-              <circle id="outerArc" cx="150" cy="150" r="136" fill="none" stroke="#00d4ff" stroke-width="2.5" stroke-dasharray="0 855" stroke-linecap="round" opacity=".75"/>
-              <circle cx="150" cy="150" r="108" fill="#080808"/>
-            </g>
-          </svg>
-          <svg class="gear-inner-svg" id="gearInnerSvg" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-            <defs><radialGradient id="igR" cx="38%" cy="32%"><stop offset="0%" stop-color="#252630"/><stop offset="100%" stop-color="#08080c"/></radialGradient></defs>
-            <g id="innerGroup" transform="rotate(0 100 100)">
-              <circle cx="100" cy="100" r="98" fill="url(#igR)" stroke="rgba(255,255,255,.04)" stroke-width="1"/>
-              <g id="innerSegments"></g><g id="innerTeeth"></g>
-              <circle id="innerArc" cx="100" cy="100" r="82" fill="none" stroke="#00d4ff" stroke-width="2" stroke-dasharray="0 515" stroke-linecap="round" opacity=".5"/>
-              <circle cx="100" cy="100" r="60" fill="#080808"/>
-            </g>
-          </svg>
-          <svg class="gear-arrows" id="arrowSvg" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg" style="pointer-events:none">
+          <svg class="gear-svg-container" id="gearSvg" viewBox="0 0 300 320" width="100%" height="100%"></svg>
+          <svg class="gear-arrows" id="arrowSvg" viewBox="0 0 300 320" xmlns="http://www.w3.org/2000/svg">
             <g id="arrow1" transform="rotate(0 150 150)"><polygon points="150,8 143,28 157,28" fill="#ff8c42" opacity=".95"/><rect x="148.5" y="28" width="3" height="18" rx="1.5" fill="#ff8c42" opacity=".72"/></g>
             <g id="arrow2" transform="rotate(180 150 150)"><polygon points="150,115 144,131 156,131" fill="#00d4ff" opacity=".9"/><rect x="148.5" y="131" width="3" height="13" rx="1.5" fill="#00d4ff" opacity=".65"/></g>
           </svg>
@@ -489,7 +476,7 @@ body {
           <svg viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg> WhatsApp शेयर
         </a>
         <button class="sh-copy" id="shCopy" type="button">
-          <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1"/><path d="M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1"/></svg> <span id="shCopyT">Link कॉपी करें</span>
+          <svg viewBox="0 0 24 24" width="17" height="17" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1"/><path d="M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1"/></svg> <span id="shCopyT">Link कॉपी करें</span>
         </button>
       </div>
       <div class="install"><div class="ic">⬇️</div><div>App install करें: ऊपर <b>3 Dots (⋮)</b> → <b>Add to Home screen</b></div></div>
@@ -526,13 +513,16 @@ body {
 document.getElementById('yr').textContent = new Date().getFullYear();
 function buzz(p){ try{ if(navigator.vibrate) navigator.vibrate(p); } catch(e){} }
 
-/* ═══ QUOTES ═══ */
-var MQ = ['हर मनका एक सांस है — <span class="accent">बस इसी पल में रहो।</span>','108 बार नाम लेने से मन खाली नहीं, <span class="accent">भरा होता है।</span>'];
-var GQ = ['Burnout real है — <span class="accent">release भी real real है।</span>','Overthinking = mental gear jam. <span class="accent">Spin it out.</span>'];
-var RQ = ['सांस पर ध्यान दो — <span class="accent">बाकी सब इंतज़ार कर सकता है।</span>','4-7-8 — <span class="accent">anxiety का antidote।</span>'];
+/* ═══ TOAST NOTIFICATION ═══ */
+function showToast(msg){
+  var t = document.getElementById('toastMsg');
+  t.textContent = msg; t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'), 2000);
+}
 
-/* ═══ NAVIGATION & ROUTING ═══ */
-var currentView = 'lobby', footerInit = false, activePlayPanel = null;
+/* ═══ NAVIGATION & SPA TRAP (Double Back) ═══ */
+var currentView = 'lobby', footerInit = false, activePlayPanel = null, lastBackTime = 0;
+
 function hideAllPlayPanels(){
   document.getElementById('panelBubble').style.display = 'none';
   document.getElementById('panelRipple').style.display = 'none';
@@ -540,7 +530,7 @@ function hideAllPlayPanels(){
   document.getElementById('panelSand').style.display   = 'none';
 }
 
-function show(view, subPanel){
+function show(view, subPanel, pushHist = true){
   currentView = view;
   document.getElementById('lobby').classList.toggle('on', view === 'lobby');
   document.getElementById('app').classList.toggle('on', view !== 'lobby');
@@ -549,17 +539,14 @@ function show(view, subPanel){
   document.getElementById('tool-relax').style.display = (view === 'relax') ? 'block' : 'none';
   document.getElementById('tool-play').style.display = (view === 'play') ? 'block' : 'none';
   
-  if(view === 'jaap') { initMala(); }
-  if(view === 'spinner') { resetGearbox(); }
-  if(view === 'relax') { document.getElementById('tabBreath').click(); }
+  if(view === 'jaap') initMala();
+  if(view === 'spinner') resetGearbox();
+  if(view === 'relax') document.getElementById('tabBreath').click();
   
   if(view === 'play' && subPanel){
-    hideAllPlayPanels();
-    activePlayPanel = subPanel;
+    hideAllPlayPanels(); activePlayPanel = subPanel;
     document.getElementById(subPanel).style.display = 'block';
     initPlayground();
-    
-    // Set Hint
     var hint = '';
     if(subPanel==='panelBubble') hint = 'दिमाग खाली करो — बबल्स पॉप करो 💥';
     if(subPanel==='panelRipple') hint = 'स्क्रीन पर टच करें — पानी की लहरें महसूस करें 🌊';
@@ -567,20 +554,40 @@ function show(view, subPanel){
     if(subPanel==='panelSand')   hint = 'बिना किसी लक्ष्य के रेत पर लकीरें खींचें 🏖️';
     document.getElementById('playHint').textContent = hint;
   }
-  
   if(view !== 'lobby') initFooterOnce();
   window.scrollTo(0,0);
+  
+  if(pushHist) history.pushState({view: view}, '', location.href);
 }
 
-// Map Lobby Buttons
+// Arm the SPA trap on first load
+history.replaceState({view:'lobby'}, '', location.href);
+history.pushState({view:'lobby'}, '', location.href); 
+
+window.addEventListener('popstate', (e) => {
+  if (currentView !== 'lobby') {
+    show('lobby', null, false); 
+    history.pushState({view:'lobby'}, '', location.href); // Re-arm trap
+  } else {
+    var now = Date.now();
+    if (now - lastBackTime < 2000) {
+      // Allow natural exit
+    } else {
+      lastBackTime = now;
+      history.pushState({view:'lobby'}, '', location.href); // Re-arm trap
+      showToast("App से बाहर जाने के लिए दोबारा Back दबाएं");
+    }
+  }
+});
+
 document.getElementById('btnMala').onclick   = () => show('jaap');
 document.getElementById('btnGear').onclick   = () => show('spinner');
 document.getElementById('btnBubble').onclick = () => show('play', 'panelBubble');
 document.getElementById('btnSand').onclick   = () => show('play', 'panelSand');
 document.getElementById('btnRipple').onclick = () => show('play', 'panelRipple');
 document.getElementById('btnAura').onclick   = () => show('play', 'panelAura');
-document.getElementById('btnRelax').onclick  = () => show('relax'); // Deep Relax handles 3 tabs
-document.getElementById('backBtn').onclick   = () => show('lobby');
+document.getElementById('btnRelax').onclick  = () => show('relax'); 
+document.getElementById('backBtn').onclick   = () => history.back();
 
 function initFooterOnce(){
   if(footerInit) return; footerInit = true;
@@ -661,54 +668,100 @@ function countOneBead(){
 document.getElementById('resetBtn').onclick=()=>{ mSt.total=0; mSt.malas=0; try{localStorage.removeItem('vh_zen2_jaap');}catch(e){} renderM(); buzz(10); vR=wrapOffset(TRACK_H/2-BEAD_H_R/2,BEAD_H_R); vL=wrapOffset(TRACK_H/2-BEAD_H_L/2,BEAD_H_L); applyTransforms(true); };
 
 /* ════════════════════════════════════════════════════════
-   GEARBOX (No Text)
+   GEARBOX SPINNER (4-Gears Interlocking SVG Math)
 ════════════════════════════════════════════════════════ */
-var HC = ['#e55a4e','#f08030','#f5c518','#6dba4e','#3ab8c8','#5b7de8','#a855d4','#e83e8c'];
-var PC = ['#00b4d8','#48cae4','#90e0ef','#0077b6','#7b2d8b','#9d4edd','#c77dff','#e0aaff'];
 var HABIT_LIST=[{label:'LAZY',emoji:'😴',id:'lazy'},{label:'SHY',emoji:'🫣',id:'shy'},{label:'LOVER',emoji:'💕',id:'lover'},{label:'SILENT',emoji:'😶',id:'silent'},{label:'BOSS',emoji:'😎',id:'boss'},{label:'KING',emoji:'👑',id:'king'},{label:'DON',emoji:'🕶️',id:'don'},{label:'WARRIOR',emoji:'⚔️',id:'warrior'}];
 var PERS_LIST=[{label:'DREAMER',emoji:'🌙',id:'dreamer'},{label:'HUSTLER',emoji:'🔥',id:'hustler'},{label:'REBEL',emoji:'💀',id:'rebel'},{label:'CHILL',emoji:'🧊',id:'chill'},{label:'SAVAGE',emoji:'🐺',id:'savage'},{label:'MYSTIC',emoji:'🔮',id:'mystic'},{label:'LOVER',emoji:'💕',id:'lover_p'},{label:'GHOST',emoji:'👻',id:'ghost'}];
 var PUNCHES = { 'lazy|dreamer':'सपने देखते हो, बिस्तर नहीं छोड़ते — parallel universe में already कामयाब हो। 🌙', 'boss|hustler':'Boss + Hustler = खुद भी करते, team को भी। कोई excuse नहीं। 🔥', 'king|savage':'माफ़ नहीं करते, भूलते भी नहीं। 🐺👑' };
 
-var OSEG=[], ISEG=[];
-function mkSeg(parent, cx, cy, r1, r2, sa, ea, color){
-  var s1=(sa+0.03)*Math.PI/180, e1=(ea-0.03)*Math.PI/180, ns='http://www.w3.org/2000/svg';
-  var d='M'+(cx+r2*Math.cos(s1))+' '+(cy+r2*Math.sin(s1))+'A'+r2+' '+r2+' 0 0 1 '+(cx+r2*Math.cos(e1))+' '+(cy+r2*Math.sin(e1))+'L'+(cx+r1*Math.cos(e1))+' '+(cy+r1*Math.sin(e1))+'A'+r1+' '+r1+' 0 0 0 '+(cx+r1*Math.cos(s1))+' '+(cy+r1*Math.sin(s1))+'Z';
-  var p=document.createElementNS(ns,'path'); p.setAttribute('d',d); p.setAttribute('fill',color); p.setAttribute('opacity','0.45'); parent.appendChild(p); return p;
-}
-(function(){
-  for(var i=0;i<8;i++){ OSEG.push(mkSeg(document.getElementById('outerSegments'),150,150,110,146,i*45-90,i*45-45,HC[i])); ISEG.push(mkSeg(document.getElementById('innerSegments'),100,100,62,96,i*45-90,i*45-45,PC[i])); }
-})();
+var NS = 'http://www.w3.org/2000/svg';
+var M = 5, CX = 150, CY = 150; 
+var RP_MAIN = 60, N_MAIN = Math.round(2*RP_MAIN/M); // 24 teeth, 15° pitch
+// SATS = [PitchRadius, angleDeg(×15°), color]
+var SATS = [[40, 225, '#43a047'], [50, 315, '#fdd835'], [40, 90, '#1e88e5']];
 
-var power=0, charging=false, chTimer=null, hit100=false, hit100T=0, outerDeg=0, innerDeg=0, spinning=false, spinRAF=null, spinOS=0, spinIS=0, spinOT=0, spinIT=0, spinDur=0, spinT0=0, a1Deg=0, a2Deg=180, arrowSpin=false, arrowRAF=null, aA1S=0, aA2S=0, aA1T=0, aA2T=0, aDur=0, aT0=0, lastTickSeg=-1;
-var outerArc=document.getElementById('outerArc'), innerArc=document.getElementById('innerArc'), chargeFill=document.getElementById('chargeFill'), chargePctEl=document.getElementById('chargePct'), gearboxWrap=document.getElementById('gearboxWrap'), reactorIcon=document.getElementById('reactorIcon');
+function getTeeth(N, Ro, Rr, phase){
+  var step = 2*Math.PI/N, prof = [[-0.30,Rr],[-0.20,Ro],[0.20,Ro],[0.30,Rr]], p=[];
+  for(var k=0; k<N; k++){ 
+    var c = phase + k*step;
+    for(var j=0; j<prof.length; j++){
+      var a = c + prof[j][0]*step;
+      p.push((prof[j][1]*Math.cos(a)).toFixed(2)+','+(prof[j][1]*Math.sin(a)).toFixed(2));
+    }
+  }
+  return p.join(' ');
+}
+
+var gearSvg = document.getElementById('gearSvg');
+var mechanicalGears = [];
+
+function buildGears(){
+  if(mechanicalGears.length) return; // Build only once
+  function addG(Rp, deg, color, isMain){
+    var N=Math.round(2*Rp/M), Ro=Rp+M, Rr=Rp-1.25*M, step=2*Math.PI/N;
+    var cx=CX, cy=CY, phase=0, ratio=1, dir=1;
+    if(!isMain){
+      var d = RP_MAIN+Rp, a = deg*Math.PI/180;
+      cx = CX+d*Math.cos(a); cy = CY+d*Math.sin(a);
+      phase = a+Math.PI-step/2; // clocking
+      ratio = N_MAIN/N; dir = -1;
+    }
+    var g = document.createElementNS(NS,'g');
+    var poly = document.createElementNS(NS,'polygon');
+    poly.setAttribute('points', getTeeth(N,Ro,Rr,phase));
+    poly.setAttribute('fill', color); 
+    poly.setAttribute('stroke', '#000'); 
+    poly.setAttribute('stroke-width', '0.6');
+    var hub = document.createElementNS(NS,'circle');
+    hub.setAttribute('r', (Rr*0.35).toFixed(1)); 
+    hub.setAttribute('fill', '#080808'); 
+    hub.setAttribute('stroke', color);
+    g.append(poly, hub); gearSvg.appendChild(g);
+    mechanicalGears.push({g:g, cx:cx, cy:cy, ratio:ratio, dir:dir});
+  }
+  addG(RP_MAIN, 0, '#e53935', true);
+  SATS.forEach(s => addG(s[0], s[1], s[2], false));
+}
+
+var power=0, charging=false, chTimer=null, hit100=false, hit100T=0;
+var mainDeg=0, spinning=false, spinRAF=null;
+var spinOS=0, spinOT=0, spinDur=0, spinT0=0;
+var a1Deg=0, a2Deg=180, arrowSpin=false, arrowRAF=null, aA1S=0, aA2S=0, aA1T=0, aA2T=0, aDur=0, aT0=0, lastTickSeg=-1;
+
+var gearboxWrap = document.getElementById('gearboxWrap'), reactorIcon = document.getElementById('reactorIcon');
+var chargeFill = document.getElementById('chargeFill'), chargePctEl = document.getElementById('chargePct');
+var arrow1 = document.getElementById('arrow1'), arrow2 = document.getElementById('arrow2');
 
 function applyEC(p){
-  var c = p<50?'#00d4ff':p<80?'#ff8c42':'#e53535', g = p<50?'rgba(0,212,255,.5)':p<80?'rgba(255,140,66,.55)':'rgba(229,53,53,.6)';
-  outerArc.setAttribute('stroke',c); innerArc.setAttribute('stroke',c);
-  outerArc.setAttribute('stroke-dasharray',((p/100)*854.5).toFixed(1)+' '+((1-p/100)*854.5).toFixed(1));
-  innerArc.setAttribute('stroke-dasharray',((p/100)*515.2).toFixed(1)+' '+((1-p/100)*515.2).toFixed(1));
-  chargeFill.style.width=Math.round(p)+'%'; chargeFill.style.background=c; chargeFill.style.boxShadow='0 0 10px '+g;
+  var c = p<50?'#00d4ff':p<80?'#ff8c42':'#e53535';
+  chargeFill.style.width=Math.round(p)+'%'; chargeFill.style.background=c; chargeFill.style.boxShadow='0 0 10px '+c;
   chargePctEl.style.color=c; chargePctEl.textContent=Math.round(p)+'%';
-  gearboxWrap.style.filter=p>0?'drop-shadow(0 0 '+Math.round(p*0.22)+'px '+g+')':'';
 }
-function setGearRot(od,id_){ document.getElementById('outerGroup').setAttribute('transform','rotate('+od+' 150 150)'); document.getElementById('innerGroup').setAttribute('transform','rotate('+id_+' 100 100)'); }
-function setArrowRot(a1,a2){ document.getElementById('arrow1').setAttribute('transform','rotate('+a1+' 150 150)'); document.getElementById('arrow2').setAttribute('transform','rotate('+a2+' 150 150)'); }
-function resetSegments(){ for(var k=0;k<8;k++){ if(OSEG[k]){ OSEG[k].setAttribute('opacity','0.45'); OSEG[k].setAttribute('stroke','transparent'); OSEG[k].setAttribute('stroke-width','1.5'); } if(ISEG[k]){ ISEG[k].setAttribute('opacity','0.45'); ISEG[k].setAttribute('stroke','transparent'); ISEG[k].setAttribute('stroke-width','1.5'); } } }
-function highlightSegments(i1,i2){ for(var k=0;k<8;k++){ if(OSEG[k]){ var on=(k===i1); OSEG[k].setAttribute('opacity',on?'0.95':'0.1'); OSEG[k].setAttribute('stroke',on?'#ffffff':'transparent'); OSEG[k].setAttribute('stroke-width',on?'2':'0'); } if(ISEG[k]){ var inn=(k===i2); ISEG[k].setAttribute('opacity',inn?'0.95':'0.1'); ISEG[k].setAttribute('stroke',inn?'#ffffff':'transparent'); ISEG[k].setAttribute('stroke-width',inn?'2':'0'); } } }
+function setGearsRot(md){
+  mechanicalGears.forEach(g => {
+    var r = g.dir * md * g.ratio;
+    g.g.setAttribute('transform',`translate(${g.cx.toFixed(2)},${g.cy.toFixed(2)}) rotate(${r.toFixed(3)})`);
+  });
+}
+function setArrowRot(a1,a2){
+  arrow1.setAttribute('transform','rotate('+a1.toFixed(2)+' 150 150)');
+  arrow2.setAttribute('transform','rotate('+a2.toFixed(2)+' 150 150)');
+}
 
 function resetGearbox(){
+  buildGears();
   charging=false; clearInterval(chTimer); spinning=false; cancelAnimationFrame(spinRAF); arrowSpin=false; cancelAnimationFrame(arrowRAF);
-  power=0; applyEC(0); setGearRot(0,0); setArrowRot(0,180); reactorIcon.textContent='HOLD'; reactorIcon.style.color='';
-  gearboxWrap.classList.remove('overload','spinning'); resetSegments(); document.getElementById('vibeCard').classList.remove('show');
+  power=0; applyEC(0); setGearsRot(0); setArrowRot(0,180); reactorIcon.textContent='HOLD'; reactorIcon.style.color='';
+  gearboxWrap.classList.remove('overload','spinning'); document.getElementById('vibeCard').classList.remove('show');
 }
 
-document.getElementById('gearOuterSvg').addEventListener('pointerdown', e=>{
-  if(charging)return; charging=true; hit100=false; resetSegments(); gearboxWrap.classList.remove('spinning');
-  try{ e.target.setPointerCapture(e.pointerId); } catch(_){}
+gearSvg.addEventListener('pointerdown', e=>{
+  if(charging)return; charging=true; hit100=false; gearboxWrap.classList.remove('spinning');
+  try{ gearSvg.setPointerCapture(e.pointerId); } catch(_){}
   reactorIcon.textContent='CHARGE'; reactorIcon.style.color='#00d4ff';
   chTimer=setInterval(()=>{
     power=Math.min(100,power+0.7+2.3*Math.pow(power/100,2)); applyEC(power);
-    outerDeg+=0.5+(power/100)*1.5; innerDeg-=0.4+(power/100)*1.0; setGearRot(outerDeg,innerDeg);
+    mainDeg += 0.5+(power/100)*1.5; setGearsRot(mainDeg);
     if(power>=100&&!hit100){ hit100=true; hit100T=Date.now(); buzz(20); gearboxWrap.classList.add('overload'); reactorIcon.textContent='100%'; reactorIcon.style.color='#e53535'; }
   }, 28);
 });
@@ -716,26 +769,29 @@ document.getElementById('gearOuterSvg').addEventListener('pointerdown', e=>{
 function releaseCharge(){
   if(!charging) return; charging=false; clearInterval(chTimer);
   gearboxWrap.classList.remove('overload'); gearboxWrap.classList.add('spinning');
-  document.getElementById('vibeCard').classList.remove('show'); resetSegments();
+  document.getElementById('vibeCard').classList.remove('show'); 
   var isPerfect = hit100 && (Date.now()-hit100T)<=150; var sm = isPerfect?3:1;
-  spinDur = (1800+(power/100)*5200)*(isPerfect?0.7:1); spinOS=outerDeg; spinIS=innerDeg;
-  spinOT = outerDeg+(2+(power/100)*14)*sm*360; spinIT = innerDeg-(2+(power/100)*14)*sm*360*0.72;
+  
+  spinDur = (1800+(power/100)*5200)*(isPerfect?0.7:1); 
+  spinOS = mainDeg; spinOT = mainDeg+(2+(power/100)*14)*sm*360; 
   spinning=true; spinT0=performance.now(); spinRAF=requestAnimationFrame(doSpinRAF);
+  
   aA1S=a1Deg; aA2S=a2Deg; aA1T=a1Deg+(3+(power/100)*10)*sm*360; aA2T=a2Deg-(3+(power/100)*10)*sm*360;
   aDur=spinDur*(0.5+Math.random()*0.4); arrowSpin=true; aT0=performance.now(); arrowRAF=requestAnimationFrame(doArrowRAF);
+  
   if(power>5) buzz(Math.min(40,Math.round(power/3)));
   if(isPerfect){ buzz([50,30,50,30,100]); document.getElementById('perfectText').classList.add('show'); setTimeout(()=>document.getElementById('perfectText').classList.remove('show'),1400); reactorIcon.textContent='PERFECT!'; reactorIcon.style.color='#d4a853'; }
   else { reactorIcon.textContent='SPIN'; reactorIcon.style.color='#888'; }
   power=0; applyEC(0);
 }
-document.getElementById('gearOuterSvg').addEventListener('pointerup', releaseCharge);
-document.getElementById('gearOuterSvg').addEventListener('pointercancel', releaseCharge);
-document.getElementById('gearOuterSvg').addEventListener('pointerleave', releaseCharge);
+gearSvg.addEventListener('pointerup', releaseCharge);
+gearSvg.addEventListener('pointercancel', releaseCharge);
+gearSvg.addEventListener('pointerleave', releaseCharge);
 
 function easeOut(t){ return 1-Math.pow(1-t,3); }
 function doSpinRAF(ts){
   if(!spinning)return; var t=Math.min((ts-spinT0)/spinDur,1), e=easeOut(t);
-  outerDeg=spinOS+(spinOT-spinOS)*e; innerDeg=spinIS+(spinIT-spinIS)*e; setGearRot(outerDeg,innerDeg);
+  mainDeg=spinOS+(spinOT-spinOS)*e; setGearsRot(mainDeg);
   if(t<1) spinRAF=requestAnimationFrame(doSpinRAF); else{ spinning=false; if(!arrowSpin){reactorIcon.textContent='HOLD'; reactorIcon.style.color='';} }
 }
 function doArrowRAF(ts){
@@ -747,7 +803,6 @@ function doArrowRAF(ts){
 function showVibeResult(){
   var i1 = Math.floor((((a1Deg%360)+360)%360)/45)%8, i2 = Math.floor((((a2Deg%360)+360)%360)/45)%8;
   var h = HABIT_LIST[i1], p2 = PERS_LIST[i2];
-  highlightSegments(i1,i2);
   document.getElementById('vibeLeftEmoji').textContent=h.emoji; document.getElementById('vibeLeftLabel').textContent=h.label;
   document.getElementById('vibeRightEmoji').textContent=p2.emoji; document.getElementById('vibeRightLabel').textContent=p2.label;
   var punch = PUNCHES[h.id+'|'+p2.id] || 'तुम्हारी vibe unique है — dictionary में नहीं। 🔥';
@@ -761,7 +816,7 @@ function showVibeResult(){
 }
 
 /* ════════════════════════════════════════════════════════
-   RELAXATION (Breath, Ground, LetGo)
+   RELAXATION SUITE (Breath, Ground, LetGo)
 ════════════════════════════════════════════════════════ */
 var tTabs=['tabBreath','tabGround','tabLetgo'], tPans=['panelBreath','panelGround','panelLetgo'];
 tTabs.forEach((t,i)=>{
@@ -811,7 +866,7 @@ lgBtn.onclick=function(){
 };
 
 /* ════════════════════════════════════════════════════════
-   ZEN PLAYGROUND (NASA Level + Sonnet Color + DPI Fixes)
+   ZEN PLAYGROUND (NASA Level Math + Cinematic + Bubbles)
 ════════════════════════════════════════════════════════ */
 function fitCanvas(cv){
   var dpr = Math.min(window.devicePixelRatio || 1, 2.5);
@@ -825,35 +880,77 @@ function fitCanvas(cv){
 }
 
 function initPlayground(){
-  /* ---- RIPPLES ---- */
+  /* ---- RIPPLES (Slow Cinematic 4-Echo) ---- */
   var cR = document.getElementById('canvasRipple'), ctxR = cR.getContext('2d');
-  var ripples = [], rRAF = null, rLast = 0, rRect = null;
+  var ripples = [], rRAF = null;
+  const R_LIFE = 2800, MAXR = 170;
   
-  function drawR(ts){
-    if(!rLast) rLast = ts; 
-    var dt = (ts - rLast) / 1000; 
-    rLast = ts;
-    ctxR.setTransform(1, 0, 0, 1, 0, 0);
-    ctxR.clearRect(0, 0, cR.width, cR.height);
+  cR.addEventListener('pointerdown', e => {
+    e.preventDefault(); try{ cR.setPointerCapture(e.pointerId); }catch(_){}
+    var rRect = cR.getBoundingClientRect();
+    var x = e.clientX - rRect.left, y = e.clientY - rRect.top;
+    for(var i=0; i<4; i++){
+      setTimeout((i) => {
+        ripples.push({ x:x, y:y, born:performance.now(), hue:Math.floor(Math.random()*360), a0:0.85 - i*0.16 });
+        if(rRAF == null) rRAF = requestAnimationFrame(drawR);
+      }, i*250, i);
+    }
+    buzz([5]);
+  });
+
+  /* ---- AURA (Slow Breathing Shockwave) ---- */
+  var cAuraFx = document.getElementById('auraFxCanvas'), ctxAura = cAuraFx.getContext('2d');
+  var shock = [];
+  const S_LIFE = 3200, S_MAX = 270;
+  
+  function auraShockwave(){
+    if(!fitCanvas(cAuraFx)) return;
+    shock.push({x: cAuraFx._cssW/2, y: cAuraFx._cssH/2, born: performance.now()});
+    if(rRAF == null) rRAF = requestAnimationFrame(drawR);
+  }
+
+  // Unified Draw Loop for Ripples & Aura
+  function drawR(now){
+    var dR = cR._dpr || 1, dA = cAuraFx._dpr || 1;
     
-    var d = cR._dpr || 1; 
-    ctxR.setTransform(d, 0, 0, d, 0, 0);
+    // Clear & Set Ripples
+    ctxR.setTransform(1, 0, 0, 1, 0, 0); ctxR.clearRect(0, 0, cR.width, cR.height);
+    ctxR.setTransform(dR, 0, 0, dR, 0, 0); ctxR.globalCompositeOperation = 'lighter';
     
     for(var i = ripples.length - 1; i >= 0; i--){
-      var r = ripples[i];
-      r.radius += 95 * dt; 
-      r.alpha -= 0.95 * dt;
-      if(r.alpha <= 0){ ripples.splice(i, 1); continue; }
-      ctxR.beginPath(); 
-      ctxR.arc(r.x, r.y, r.radius, 0, 6.2832);
-      ctxR.strokeStyle = 'rgba(0, 212, 255, ' + r.alpha + ')'; 
-      ctxR.lineWidth = 2; 
-      ctxR.stroke();
+      var rp = ripples[i], age = now - rp.born;
+      if(age > R_LIFE){ ripples.splice(i, 1); continue; }
+      var k = age/R_LIFE, eased = 1-Math.pow(1-k,3);
+      var alpha = rp.a0 * (1-k)*(1-k);
+      ctxR.beginPath(); ctxR.arc(rp.x, rp.y, MAXR*eased, 0, Math.PI*2);
+      ctxR.strokeStyle = `hsla(${rp.hue}, 100%, 62%, ${alpha.toFixed(3)})`;
+      ctxR.lineWidth = 3*(1-k) + 0.5; ctxR.stroke();
     }
-    if(ripples.length) rRAF = requestAnimationFrame(drawR);
-    else { rRAF = null; rLast = 0; }
+    ctxR.globalCompositeOperation = 'source-over';
+
+    // Clear & Set Aura
+    ctxAura.setTransform(1, 0, 0, 1, 0, 0); ctxAura.clearRect(0, 0, cAuraFx.width, cAuraFx.height);
+    ctxAura.setTransform(dA, 0, 0, dA, 0, 0); ctxAura.globalCompositeOperation = 'lighter';
+    
+    for(var j = shock.length - 1; j >= 0; j--){
+      var s = shock[j], sage = now - s.born;
+      if(sage > S_LIFE){ shock.splice(j, 1); continue; }
+      var sk = sage/S_LIFE, seased = 1-Math.pow(1-sk,4);
+      var salpha = Math.sin(sk*Math.PI)*0.5;
+      ctxAura.beginPath(); ctxAura.arc(s.x, s.y, S_MAX*seased, 0, Math.PI*2);
+      ctxAura.strokeStyle = `hsla(${(now/25)%360}, 90%, 66%, ${salpha.toFixed(3)})`;
+      ctxAura.lineWidth = 7*(1-sk) + 1; ctxAura.stroke();
+    }
+    ctxAura.globalCompositeOperation = 'source-over';
+
+    if(ripples.length > 0 || shock.length > 0) rRAF = requestAnimationFrame(drawR);
+    else rRAF = null;
   }
-  function fitRipple(){ if(fitCanvas(cR) && ripples.length){ rLast = 0; if(rRAF == null) rRAF = requestAnimationFrame(drawR); } }
+
+  function fitRipple(){ 
+    if(fitCanvas(cR)) { if(rRAF == null && (ripples.length || shock.length)) rRAF = requestAnimationFrame(drawR); }
+    fitCanvas(cAuraFx);
+  }
 
   /* ---- SAND ---- */
   var cS = document.getElementById('canvasSand'), ctxS = cS.getContext('2d');
@@ -875,10 +972,8 @@ function initPlayground(){
     var nx = -dy / L, ny = dx / L; 
     for(var k = -1; k <= 1; k++){
       var ox = nx * k * LANE, oy = ny * k * LANE;
-      ctxS.beginPath(); 
-      ctxS.moveTo(m1x + ox, m1y + oy);
-      ctxS.quadraticCurveTo(p1.x + ox, p1.y + oy, m2x + ox, m2y + oy); 
-      ctxS.stroke();
+      ctxS.beginPath(); ctxS.moveTo(m1x + ox, m1y + oy);
+      ctxS.quadraticCurveTo(p1.x + ox, p1.y + oy, m2x + ox, m2y + oy); ctxS.stroke();
     }
   }
 
@@ -886,96 +981,39 @@ function initPlayground(){
     var dx = b.x - a.x, dy = b.y - a.y, L = Math.hypot(dx, dy) || 1;
     var nx = -dy / L, ny = dx / L;
     for(var k = -1; k <= 1; k++){ 
-      ctxS.beginPath();
-      ctxS.moveTo(a.x + nx * k * LANE, a.y + ny * k * LANE); 
-      ctxS.lineTo(b.x + nx * k * LANE, b.y + ny * k * LANE); 
-      ctxS.stroke(); 
+      ctxS.beginPath(); ctxS.moveTo(a.x + nx * k * LANE, a.y + ny * k * LANE); 
+      ctxS.lineTo(b.x + nx * k * LANE, b.y + ny * k * LANE); ctxS.stroke(); 
     }
-  }
-
-  /* ---- AURA SHOCKWAVE EFFECT ---- */
-  var cAuraFx = document.getElementById('auraFxCanvas');
-  function auraShockwave(canvas){
-    if(!fitCanvas(canvas)) return;
-    var ctx = canvas.getContext('2d');
-    var d = canvas._dpr || 1;
-    ctx.setTransform(d,0,0,d,0,0);
-    
-    var cx = canvas._cssW / 2, cy = canvas._cssH / 2;
-    var maxR = Math.hypot(cx, cy);
-    var start = performance.now(), DUR = 900;
-
-    (function frame(now){
-      var t = Math.min((now - start) / DUR, 1);
-      var ease = 1 - Math.pow(1 - t, 3);
-      var r = ease * maxR;
-
-      ctx.save(); ctx.setTransform(1,0,0,1,0,0);
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      ctx.restore();
-
-      for(var i = 0; i < 5; i++){
-        var rr = r - i * 22;
-        if(rr <= 0) continue;
-        var hue = (now / 4 + i * 60) % 360;
-        var alpha = (1 - t) * (1 - i * 0.15);
-        ctx.beginPath();
-        ctx.arc(cx, cy, rr, 0, Math.PI * 2);
-        ctx.lineWidth = 6;
-        ctx.shadowBlur = 24;
-        ctx.shadowColor = `hsl(${hue} 100% 60%)`;
-        ctx.strokeStyle = `hsla(${hue}, 100%, 60%, ${alpha})`;
-        ctx.stroke();
-      }
-
-      if(t < 1) requestAnimationFrame(frame);
-      else { ctx.save(); ctx.setTransform(1,0,0,1,0,0); ctx.clearRect(0,0,canvas.width,canvas.height); ctx.restore(); }
-    })(performance.now());
   }
 
   /* ---- BIND ONCE ---- */
   if(!initPlayground.bound){
     initPlayground.bound = true;
 
-    // Bubble Wrap (Multi-color Neon)
+    // Bubble Wrap (48 Bubbles Multi-color)
     var bg = document.getElementById('bubbleGrid');
     if(!bg.children.length){
-      for(var i=0; i<25; i++){ 
-        var b = document.createElement('div'); b.className = 'bubble';
-        bg.appendChild(b); 
-      }
+      for(var i=0; i<48; i++){ var b = document.createElement('div'); b.className = 'bubble'; bg.appendChild(b); }
     }
-    bg.addEventListener('click', function(e){
+    bg.addEventListener('pointerdown', function(e){
       var bubble = e.target.closest('.bubble');
       if(!bubble || bubble.dataset.popped) return;
+      e.preventDefault();
       var hue = Math.floor(Math.random() * 360);
       var color = `hsl(${hue} 100% 60%)`;
       bubble.style.background = color;
       bubble.style.boxShadow = `0 0 18px ${color}, inset 0 0 10px rgba(255,255,255,.3)`;
       bubble.style.transform = 'scale(0.85)';
-      bubble.style.opacity = '0.8';
       bubble.dataset.popped = "1";
       buzz([15]); 
     });
-
     document.getElementById('btnResetBubbles').onclick = () => { 
       document.querySelectorAll('.bubble').forEach(b => {
-        b.dataset.popped = ""; b.style.background = ''; b.style.boxShadow = '';
-        b.style.transform = ''; b.style.opacity = '';
-      }); 
-      buzz(10); 
+        b.dataset.popped = ""; b.style.background = ''; b.style.boxShadow = ''; b.style.transform = '';
+      }); buzz(10); 
     };
 
-    // Ripples Input
-    cR.addEventListener('pointerdown', function(e){
-      e.preventDefault(); try{ cR.setPointerCapture(e.pointerId); }catch(_){}
-      rRect = cR.getBoundingClientRect();
-      ripples.push({ x: e.clientX - rRect.left, y: e.clientY - rRect.top, radius: 0, alpha: 1 });
-      if(rRAF == null){ rLast = 0; rRAF = requestAnimationFrame(drawR); } 
-      buzz([5]);
-    });
-
-    // Aura Align
+    // Aura Align Game
     var aBtn = document.getElementById('auraBtn'), isAura = false;
     var a1 = document.getElementById('aura1'), a2 = document.getElementById('aura2'), a3 = document.getElementById('aura3');
     var pos = [{x:-50,y:-50},{x:50,y:-30},{x:-30,y:50}];
@@ -987,7 +1025,7 @@ function initPlayground(){
         pos.forEach(p => { p.x *= 0.92; p.y *= 0.92; });
         if(Math.abs(pos[0].x) < 1){ 
           isAura = false; buzz([30,40,30]);
-          auraShockwave(cAuraFx);
+          auraShockwave();
           document.getElementById('perfectText').classList.add('show');
           setTimeout(() => document.getElementById('perfectText').classList.remove('show'), 1000); 
         } 
@@ -1016,24 +1054,13 @@ function initPlayground(){
     });
     
     function endSand(){ drawingS = false; ptsS = []; }
-    cS.addEventListener('pointerup', endSand);
-    cS.addEventListener('pointercancel', endSand);
-    document.getElementById('btnResetSand').onclick = () => { 
-      ctxS.setTransform(1, 0, 0, 1, 0, 0); ctxS.clearRect(0, 0, cS.width, cS.height); 
-      styleSand(); buzz(10); 
-    };
+    cS.addEventListener('pointerup', endSand); cS.addEventListener('pointercancel', endSand);
+    document.getElementById('btnResetSand').onclick = () => { ctxS.setTransform(1, 0, 0, 1, 0, 0); ctxS.clearRect(0, 0, cS.width, cS.height); styleSand(); buzz(10); };
 
-    window.addEventListener('resize', function(){ 
-      if(activePlayPanel === 'panelRipple') fitRipple(); 
-      if(activePlayPanel === 'panelSand') fitSand(); 
-    });
+    window.addEventListener('resize', function(){ if(activePlayPanel === 'panelRipple') fitRipple(); if(activePlayPanel === 'panelSand') fitSand(); });
   }
 
-  // Force fit on current active tab
-  requestAnimationFrame(function(){ 
-    if(activePlayPanel === 'panelRipple') fitRipple(); 
-    if(activePlayPanel === 'panelSand') fitSand(); 
-  });
+  requestAnimationFrame(function(){ if(activePlayPanel === 'panelRipple') fitRipple(); if(activePlayPanel === 'panelSand') fitSand(); });
 }
 
 /* ════════════════════════════════════════════════════════
