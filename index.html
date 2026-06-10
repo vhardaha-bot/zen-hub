@@ -69,15 +69,12 @@ body {
 .tagline { text-align:center; color:var(--m); font-size:11px; margin-bottom:24px; letter-spacing:2px; text-transform:uppercase; font-family:'Rajdhani',sans-serif; }
 
 /* ═══════════════════════════════════════
-   VIEW SYSTEM
+   VIEW SYSTEM & LOBBY
 ═══════════════════════════════════════ */
 .view { display:none; }
 .view.on { display:block; animation:viewIn .35s cubic-bezier(.22,.61,.36,1); }
 @keyframes viewIn { from{opacity:0;transform:translateY(10px)} to{opacity:1;transform:none} }
 
-/* ═══════════════════════════════════════
-   LOBBY
-═══════════════════════════════════════ */
 .lobby-inner { display:flex; flex-direction:column; gap:14px; }
 .vault-btn {
   position:relative; display:flex; align-items:center; gap:16px;
@@ -97,7 +94,6 @@ body {
 .vault-sub { font-size:12.5px; color:rgba(122,118,112,.55); line-height:1.45; font-family:'Hind',sans-serif; }
 .vault-arrow { flex:none; opacity:.28; font-size:20px; z-index:1; color:var(--b); }
 
-/* specific vaults */
 .vault-mala { background:linear-gradient(135deg,rgba(212,168,83,.14),rgba(8,8,8,.95) 60%),var(--bg2); box-shadow:inset 0 0 0 1px rgba(212,168,83,.25),0 16px 40px rgba(0,0,0,.5); }
 .vault-mala::before { background:linear-gradient(90deg,transparent,var(--gold),var(--gold3),transparent); }
 .vault-mala .vault-title { background:linear-gradient(90deg,var(--gold3),var(--gold)); -webkit-background-clip:text; background-clip:text; color:transparent; }
@@ -138,7 +134,7 @@ body {
 .tool-quote.play-accent .accent { color:var(--green); }
 
 /* ═══════════════════════════════════════
-   MALA — TRUE SNAP-TO-GRID (PULL DOWN TO COUNT)
+   MALA — TRUE PULL DOWN LOGIC
 ═══════════════════════════════════════ */
 .mala-tool { background:linear-gradient(170deg,#0f0e0b,#080807); border:1px solid rgba(212,168,83,.15); border-radius:4px; margin-bottom:14px; position:relative; overflow:hidden; }
 .mala-tool::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; background:linear-gradient(90deg,transparent,rgba(212,168,83,.5),transparent); pointer-events:none; z-index:2; }
@@ -206,7 +202,7 @@ body {
 .gearbox-wrap.overload .gear-outer-svg { animation:gearShake .07s linear infinite; }
 .gearbox-wrap.spinning { filter:drop-shadow(0 0 28px rgba(0,212,255,.38)); }
 #outerSegments path,#innerSegments path { transition:opacity .55s ease,stroke .55s ease,stroke-width .55s ease; }
-/* Vibe Card */
+/* Vibe Card Result */
 .vibe-card { display:none; margin-top:14px; background:linear-gradient(160deg,#0e0e14,#080810); border:1px solid rgba(0,212,255,.18); border-radius:4px; padding:20px 16px 16px; text-align:center; clip-path:polygon(0 0,calc(100% - 10px) 0,100% 10px,100% 100%,10px 100%,0 calc(100% - 10px)); }
 .vibe-card.show { display:block; animation:vibeIn .45s cubic-bezier(.22,.61,.36,1); }
 @keyframes vibeIn { from{opacity:0;transform:translateY(12px) scale(.97)} to{opacity:1;transform:none} }
@@ -235,18 +231,13 @@ body {
 .relax-panel, .play-panel { display:none; padding:0 16px; }
 .relax-panel.on, .play-panel.on { display:block; animation:viewIn .3s ease; }
 
-/* Breathing Sphere (Fixed 19s Animation) */
+/* Breathing Sphere */
 .breath-area { display:flex; flex-direction:column; align-items:center; gap:20px; padding:10px 0 4px; }
 .breath-sphere-wrap { position:relative; width:190px; height:190px; }
 .breath-sphere-wrap::before { content:''; position:absolute; inset:-20px; border-radius:50%; background:radial-gradient(circle,rgba(168,85,212,.15),transparent 70%); animation:breathGlowCycle 19s ease-in-out infinite; pointer-events:none; }
 @keyframes breathGlowCycle { 0%{opacity:.5;transform:scale(.9)} 21%{opacity:1;transform:scale(1.1)} 58%{opacity:1;transform:scale(1.1)} 100%{opacity:.5;transform:scale(.9)} }
 .breath-sphere { width:190px; height:190px; border-radius:50%; position:relative; overflow:hidden; cursor:pointer; display:flex; align-items:center; justify-content:center; animation:breathCycle 19s ease-in-out infinite; transform-origin:center; background:radial-gradient(circle at 38% 32%,rgba(200,160,255,.18),transparent 60%),radial-gradient(circle at 60% 65%,rgba(100,40,200,.35),rgba(50,10,100,.6) 60%,rgba(10,5,20,.85) 100%); box-shadow:0 0 0 1px rgba(168,85,212,.25),0 0 30px rgba(168,85,212,.2),0 0 60px rgba(168,85,212,.08),inset 0 0 40px rgba(0,0,0,.5); }
-@keyframes breathCycle {
-  0%   { transform:scale(0.72); box-shadow:0 0 0 1px rgba(168,85,212,.2),0 0 20px rgba(168,85,212,.1),inset 0 0 40px rgba(0,0,0,.6); }
-  21%  { transform:scale(1);    box-shadow:0 0 0 2px rgba(168,85,212,.5),0 0 50px rgba(168,85,212,.35),0 0 90px rgba(168,85,212,.12),inset 0 0 30px rgba(0,0,0,.3); }
-  58%  { transform:scale(1);    box-shadow:0 0 0 2px rgba(168,85,212,.5),0 0 50px rgba(168,85,212,.35),0 0 90px rgba(168,85,212,.12),inset 0 0 30px rgba(0,0,0,.3); }
-  100% { transform:scale(0.72); box-shadow:0 0 0 1px rgba(168,85,212,.2),0 0 20px rgba(168,85,212,.1),inset 0 0 40px rgba(0,0,0,.6); }
-}
+@keyframes breathCycle { 0%{transform:scale(0.72);box-shadow:0 0 0 1px rgba(168,85,212,.2),0 0 20px rgba(168,85,212,.1),inset 0 0 40px rgba(0,0,0,.6);} 21%{transform:scale(1);box-shadow:0 0 0 2px rgba(168,85,212,.5),0 0 50px rgba(168,85,212,.35),0 0 90px rgba(168,85,212,.12),inset 0 0 30px rgba(0,0,0,.3);} 58%{transform:scale(1);box-shadow:0 0 0 2px rgba(168,85,212,.5),0 0 50px rgba(168,85,212,.35),0 0 90px rgba(168,85,212,.12),inset 0 0 30px rgba(0,0,0,.3);} 100%{transform:scale(0.72);box-shadow:0 0 0 1px rgba(168,85,212,.2),0 0 20px rgba(168,85,212,.1),inset 0 0 40px rgba(0,0,0,.6);} }
 .breath-inner-ring { position:absolute; width:60%; height:60%; border-radius:50%; border:1px solid rgba(200,150,255,.15); animation:breathInnerPulse 19s ease-in-out infinite; }
 @keyframes breathInnerPulse { 0%,100%{opacity:.3;transform:scale(.9)} 21%,58%{opacity:.7;transform:scale(1.05)} }
 .breath-label-text { font-family:'Cinzel',serif; font-size:13px; font-weight:700; color:rgba(200,160,255,.9); letter-spacing:3px; z-index:2; text-align:center; }
@@ -257,8 +248,7 @@ body {
 .breath-step-lbl { color:var(--m); }
 .breath-ctrl { display:flex; gap:10px; margin-top:6px; }
 .breath-btn { padding:10px 22px; border-radius:4px; border:1px solid rgba(168,85,212,.3); background:rgba(168,85,212,.1); color:var(--purple); font-family:'Rajdhani',sans-serif; font-size:12px; font-weight:700; letter-spacing:2px; text-transform:uppercase; cursor:pointer; transition:transform .12s, background .2s; }
-.breath-btn:active { transform:scale(.96); }
-.breath-btn.running { background:rgba(168,85,212,.2); border-color:rgba(168,85,212,.5); }
+.breath-btn:active { transform:scale(.96); } .breath-btn.running { background:rgba(168,85,212,.2); border-color:rgba(168,85,212,.5); }
 .breath-sphere.paused, .breath-sphere-wrap.paused::before, .breath-inner-ring.paused { animation-play-state:paused; }
 
 /* Haptic Heartbeat */
@@ -468,18 +458,9 @@ body {
         </div>
 
         <div class="mala-tracks" id="malaTracks">
-          <div class="track-left" id="trackLeft">
-            <div class="track-thread"></div>
-            <div class="bead-strip" id="stripLeft"></div>
-          </div>
-          <div class="track-right" id="trackRight">
-            <div class="track-thread"></div>
-            <div class="bead-strip" id="stripRight"></div>
-          </div>
-          <div class="mala-om" id="malaOm">
-            <span class="mala-om-sym" id="malaOmSym">ॐ</span>
-            <span class="mala-om-name" id="malaOmName">OMKAR</span>
-          </div>
+          <div class="track-left" id="trackLeft"><div class="track-thread"></div><div class="bead-strip" id="stripLeft"></div></div>
+          <div class="track-right" id="trackRight"><div class="track-thread"></div><div class="bead-strip" id="stripRight"></div></div>
+          <div class="mala-om" id="malaOm"><span class="mala-om-sym" id="malaOmSym">ॐ</span><span class="mala-om-name" id="malaOmName">OMKAR</span></div>
         </div>
 
         <div class="mala-stats">
@@ -500,9 +481,7 @@ body {
       <div class="gear-tool">
         <div class="gearbox-wrap" id="gearboxWrap">
           <svg class="gear-outer-svg" id="gearOuterSvg" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-              <radialGradient id="ogR" cx="40%" cy="35%"><stop offset="0%" stop-color="#2e2f3a"/><stop offset="100%" stop-color="#0c0c12"/></radialGradient>
-            </defs>
+            <defs><radialGradient id="ogR" cx="40%" cy="35%"><stop offset="0%" stop-color="#2e2f3a"/><stop offset="100%" stop-color="#0c0c12"/></radialGradient></defs>
             <g id="outerGroup" transform="rotate(0 150 150)">
               <circle cx="150" cy="150" r="148" fill="url(#ogR)" stroke="rgba(255,255,255,.05)" stroke-width="1"/>
               <g id="outerSegments"></g><g id="outerTeeth"></g>
@@ -520,14 +499,8 @@ body {
             </g>
           </svg>
           <svg class="gear-arrows" id="arrowSvg" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg" style="pointer-events:none">
-            <g id="arrow1" transform="rotate(0 150 150)">
-              <polygon points="150,8 143,28 157,28" fill="#ff8c42" opacity=".95"/>
-              <rect x="148.5" y="28" width="3" height="18" rx="1.5" fill="#ff8c42" opacity=".72"/>
-            </g>
-            <g id="arrow2" transform="rotate(180 150 150)">
-              <polygon points="150,115 144,131 156,131" fill="#00d4ff" opacity=".9"/>
-              <rect x="148.5" y="131" width="3" height="13" rx="1.5" fill="#00d4ff" opacity=".65"/>
-            </g>
+            <g id="arrow1" transform="rotate(0 150 150)"><polygon points="150,8 143,28 157,28" fill="#ff8c42" opacity=".95"/><rect x="148.5" y="28" width="3" height="18" rx="1.5" fill="#ff8c42" opacity=".72"/></g>
+            <g id="arrow2" transform="rotate(180 150 150)"><polygon points="150,115 144,131 156,131" fill="#00d4ff" opacity=".9"/><rect x="148.5" y="131" width="3" height="13" rx="1.5" fill="#00d4ff" opacity=".65"/></g>
           </svg>
           <div class="gear-reactor"><span class="gear-reactor-icon" id="reactorIcon">HOLD</span></div>
         </div>
@@ -608,8 +581,7 @@ body {
         <div class="relax-panel on" id="panelBreath">
           <div class="breath-area">
             <div class="breath-sphere-wrap" id="breathWrap">
-              <div class="breath-sphere" id="breathSphere">
-                <div class="breath-inner-ring" id="breathRing"></div>
+              <div class="breath-sphere" id="breathSphere"><div class="breath-inner-ring" id="breathRing"></div>
                 <div style="display:flex;flex-direction:column;align-items:center;z-index:2">
                   <div class="breath-label-text" id="breathPhaseLabel">INHALE</div>
                   <div class="breath-phase-sub" id="breathPhaseSub">4 सेकंड</div>
@@ -666,93 +638,51 @@ body {
     <div id="footer">
       <div class="share-bar">
         <a class="sh-wa" id="shWa" href="#" target="_blank" rel="noopener">
-          <svg viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
-          WhatsApp शेयर
+          <svg viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg> WhatsApp शेयर
         </a>
         <button class="sh-copy" id="shCopy" type="button">
-          <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1"/><path d="M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1"/></svg>
-          <span id="shCopyT">Link कॉपी करें</span>
+          <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1"/><path d="M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1"/></svg> <span id="shCopyT">Link कॉपी करें</span>
         </button>
       </div>
-      <div class="install">
-        <div class="ic">⬇️</div>
-        <div>App install करें: ऊपर <b>3 Dots (⋮)</b> → <b>Add to Home screen</b></div>
-      </div>
-      <div class="adwrap">
-        <div class="adlbl">विज्ञापन</div>
-        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8032879638880236" data-ad-slot="2413655359" data-ad-format="auto" data-full-width-responsive="true"></ins>
-      </div>
+      <div class="install"><div class="ic">⬇️</div><div>App install करें: ऊपर <b>3 Dots (⋮)</b> → <b>Add to Home screen</b></div></div>
+      <div class="adwrap"><div class="adlbl">विज्ञापन</div><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8032879638880236" data-ad-slot="2413655359" data-ad-format="auto" data-full-width-responsive="true"></ins></div>
       <div class="sec-h"><span class="dot"></span>पौराणिक कथाएँ व रहस्य</div>
-      <div id="cat1">
-        <div class="big"><div class="sk big"></div></div>
-        <div class="grid"><div class="sk sm"></div><div class="sk sm"></div><div class="sk sm"></div><div class="sk sm"></div></div>
-      </div>
-      <div class="adwrap">
-        <div class="adlbl">विज्ञापन</div>
-        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8032879638880236" data-ad-slot="6153441428" data-ad-format="auto" data-full-width-responsive="true"></ins>
-      </div>
+      <div id="cat1"><div class="big"><div class="sk big"></div></div><div class="grid"><div class="sk sm"></div><div class="sk sm"></div></div></div>
+      <div class="adwrap"><div class="adlbl">विज्ञापन</div><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8032879638880236" data-ad-slot="6153441428" data-ad-format="auto" data-full-width-responsive="true"></ins></div>
       <div class="sec-h"><span class="dot"></span>लत से आज़ादी — सच्चाई</div>
-      <div id="cat2">
-        <div class="big"><div class="sk big"></div></div>
-        <div class="grid"><div class="sk sm"></div><div class="sk sm"></div><div class="sk sm"></div><div class="sk sm"></div></div>
-      </div>
+      <div id="cat2"><div class="big"><div class="sk big"></div></div><div class="grid"><div class="sk sm"></div><div class="sk sm"></div></div></div>
     </div>
   </div>
 
   <div class="seo">
-    <h2>Zen Hub 2.0 — मन शांत करने का 4-in-1 डिजिटल टूल</h2>
-    <p><b>Zen Hub 2.0</b> — दो-धारा जाप माला, क्वांटम गियरबॉक्स, Zen Playground, Haptic Grounding Zone और Let Go Canvas। Spin करो और अपनी Habit × Personality जानो।</p>
-    <p>108 की संख्या भारतीय अध्यात्म में सदियों से इस्तेमाल होती आई है। Zen Hub PWA है — इंस्टॉल के बाद ऑफ़लाइन भी चलता है।</p>
+    <h2>Zen Hub 2.0 — मन शांत करने का टूल</h2>
+    <p><b>Zen Hub 2.0</b> — दो-धारा जाप माला, क्वांटम गियरबॉक्स, Zen Playground, और Deep Relaxation Modules। vhoriginal.com का मुफ़्त PWA।</p>
   </div>
-  <div class="foot">
-    बनाया गया ❤️ से · <a href="https://vhoriginal.com" target="_blank" rel="noopener">Vista Hub — vhoriginal.com</a><br>
-    © <span id="yr"></span> सभी अधिकार सुरक्षित
-  </div>
+  <div class="foot">बनाया गया ❤️ से · <a href="https://vhoriginal.com" target="_blank" rel="noopener">vhoriginal.com</a><br>© <span id="yr"></span> सभी अधिकार सुरक्षित</div>
 </div>
 
 <script>
 (function(){
-  var url = (location.href||'').split('#')[0];
-  if(url.indexOf('http') !== 0) url = 'https://relax.vhoriginal.com/';
+  var url = (location.href||'').split('#')[0]; if(url.indexOf('http')!==0) url='https://relax.vhoriginal.com/';
   var msg = 'मेरा दिमाग आज बहुत शांत है, तुम भी ये डिजिटल रिलैक्सेशन ट्राई करो... 👇\n';
-  var wa = document.getElementById('shWa');
-  if(wa) wa.href = 'https://wa.me/?text=' + encodeURIComponent(msg + url);
-
+  var wa = document.getElementById('shWa'); if(wa) wa.href = 'https://wa.me/?text=' + encodeURIComponent(msg + url);
   var cp = document.getElementById('shCopy'), cpt = document.getElementById('shCopyT');
-  function fallbackCopy(t){
-    try{
-      var ta = document.createElement('textarea');
-      ta.value = t; ta.style.cssText = 'position:fixed;opacity:0;top:0;left:0';
-      document.body.appendChild(ta); ta.focus(); ta.select();
-      document.execCommand('copy'); document.body.removeChild(ta);
-    } catch(e){}
-  }
-  if(cp) cp.addEventListener('click', function(){
-    var done = function(){
-      cp.classList.add('done'); cpt.textContent = 'कॉपी हो गया ✓';
-      setTimeout(function(){ cp.classList.remove('done'); cpt.textContent = 'Link कॉपी करें'; }, 1800);
-    };
-    if(navigator.clipboard && navigator.clipboard.writeText){
-      navigator.clipboard.writeText(url).then(done).catch(function(){ fallbackCopy(url); done(); });
-    } else { fallbackCopy(url); done(); }
-  });
+  function fallbackCopy(t){ try{ var ta=document.createElement('textarea'); ta.value=t; ta.style.cssText='position:fixed;opacity:0;top:0;left:0'; document.body.appendChild(ta); ta.focus(); ta.select(); document.execCommand('copy'); document.body.removeChild(ta); } catch(e){} }
+  if(cp) cp.addEventListener('click', function(){ var done=function(){ cp.classList.add('done'); cpt.textContent='कॉपी हो गया ✓'; setTimeout(function(){ cp.classList.remove('done'); cpt.textContent='Link कॉपी करें'; }, 1800); }; if(navigator.clipboard && navigator.clipboard.writeText){ navigator.clipboard.writeText(url).then(done).catch(function(){ fallbackCopy(url); done(); }); } else { fallbackCopy(url); done(); } });
 })();
 </script>
 
 <script>
 (function(){
 'use strict';
-var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion:reduce)').matches;
 document.getElementById('yr').textContent = new Date().getFullYear();
 function buzz(p){ try{ if(navigator.vibrate) navigator.vibrate(p); } catch(e){} }
 
 /* ═══ QUOTES ═══ */
-var MQ = ['हर मनका एक सांस है — <span class="accent">बस इसी पल में रहो।</span>','108 बार नाम लेने से मन खाली नहीं, <span class="accent">भरा होता है।</span>','माला नहीं घुमाते — <span class="accent">अहंकार को घुमाते हो।</span>'];
-var GQ = ['Burnout real है — <span class="accent">release भी real है।</span>','Control illusion है — <span class="accent">friction नहीं।</span>','Overthinking = mental gear jam. <span class="accent">Spin it out.</span>'];
-var RQ = ['सांस पर ध्यान दो — <span class="accent">बाकी सब इंतज़ार कर सकता है।</span>','Exhale करो — <span class="accent">tension भी साथ जाती है।</span>','4-7-8 — <span class="accent">anxiety का antidote।</span>'];
+var MQ = ['हर मनका एक सांस है — <span class="accent">बस इसी पल में रहो।</span>','108 बार नाम लेने से मन खाली नहीं, <span class="accent">भरा होता है।</span>'];
+var GQ = ['Burnout real है — <span class="accent">release भी real है।</span>','Overthinking = mental gear jam. <span class="accent">Spin it out.</span>'];
+var RQ = ['सांस पर ध्यान दो — <span class="accent">बाकी सब इंतज़ार कर सकता है।</span>','4-7-8 — <span class="accent">anxiety का antidote।</span>'];
 var PQ = ['दिमाग को खाली करो — <span class="accent">बिना सोचे काम करो।</span>','बबल्स फोड़ो, <span class="accent">टेंशन नहीं।</span>','Zen state में <span class="accent">लहरों को महसूस करो।</span>'];
-
-var mqEl=document.getElementById('malaQuote'), gqEl=document.getElementById('gearQuote'), rqEl=document.getElementById('relaxQuote'), pqEl=document.getElementById('playQuote');
 function showQ(el, arr){ el.innerHTML=arr[Math.floor(Math.random()*arr.length)]; el.classList.remove('show'); setTimeout(()=>el.classList.add('show'),100); }
 
 /* ═══ NAVIGATION ═══ */
@@ -766,12 +696,11 @@ function show(view){
   document.getElementById('tool-relax').style.display = (view === 'relax') ? 'block' : 'none';
   document.getElementById('tool-play').style.display = (view === 'play') ? 'block' : 'none';
   
-  if(view === 'jaap') { initMala(); showQ(mqEl,MQ); }
-  if(view === 'spinner') { resetGearbox(); showQ(gqEl,GQ); }
-  if(view === 'relax') showQ(rqEl,RQ);
-  if(view === 'play') { initPlayground(); showQ(pqEl,PQ); }
+  if(view === 'jaap') { initMala(); showQ(document.getElementById('malaQuote'),MQ); }
+  if(view === 'spinner') { resetGearbox(); showQ(document.getElementById('gearQuote'),GQ); }
+  if(view === 'relax') showQ(document.getElementById('relaxQuote'),RQ);
+  if(view === 'play') { initPlayground(); showQ(document.getElementById('playQuote'),PQ); }
   if(view !== 'lobby') initFooterOnce();
-  
   window.scrollTo(0,0);
 }
 document.getElementById('goJaap').onclick = ()=>show('jaap');
@@ -830,15 +759,12 @@ function initMala(){
   trackRight.addEventListener('pointermove', e=>{
     if(!dragOn || e.pointerId!==dragId) return;
     var dy = e.clientY - lastClientY; lastClientY = e.clientY;
-    
-    // 🔥 PULL DOWN (dy > 0) increments count.
     if(dy > 0){
       dragAccum += dy;
       while(dragAccum >= BEAD_H_R){ dragAccum -= BEAD_H_R; countOneBead(); }
       vR = wrapOffset(vR + dy, BEAD_H_R); vL = wrapOffset(vL - dy * (BEAD_H_L/BEAD_H_R), BEAD_H_L);
       applyTransforms(false);
     } else {
-      // Pulling up simply scrolls visually backwards, no negative counting
       vR = wrapOffset(vR + dy, BEAD_H_R); vL = wrapOffset(vL - dy * (BEAD_H_L/BEAD_H_R), BEAD_H_L);
       applyTransforms(false);
     }
@@ -862,7 +788,7 @@ function countOneBead(){
 document.getElementById('resetBtn').onclick=()=>{ mSt.total=0; mSt.malas=0; try{localStorage.removeItem('vh_zen2_jaap');}catch(e){} renderM(); buzz(10); vR=wrapOffset(TRACK_H/2-BEAD_H_R/2,BEAD_H_R); vL=wrapOffset(TRACK_H/2-BEAD_H_L/2,BEAD_H_L); applyTransforms(true); };
 
 /* ════════════════════════════════════════════════════════
-   GEARBOX (No Text inside SVG rings)
+   GEARBOX (No Text)
 ════════════════════════════════════════════════════════ */
 var HC = ['#e55a4e','#f08030','#f5c518','#6dba4e','#3ab8c8','#5b7de8','#a855d4','#e83e8c'];
 var PC = ['#00b4d8','#48cae4','#90e0ef','#0077b6','#7b2d8b','#9d4edd','#c77dff','#e0aaff'];
@@ -871,68 +797,8 @@ var PERS_LIST=[{label:'DREAMER',emoji:'🌙',id:'dreamer'},{label:'HUSTLER',emoj
 var PUNCHES = {
   'lazy|dreamer':'सपने देखते हो, बिस्तर नहीं छोड़ते — parallel universe में already कामयाब हो। 🌙',
   'lazy|hustler':'अंदर hustler, बाहर "थोड़ी देर और सोने दो।" Classic conflict। 😴🔥',
-  'lazy|rebel':'Rules तोड़ते हो — खासकर alarm का। असली rebellion। 💀',
-  'lazy|chill':'Chill हो, lazy हो — दोनों एक ही हैं, chill ज़्यादा respectable लगता है। 🧊',
-  'lazy|savage':'Energy save करते हो। जब strike करते हो — deadly। 🐺',
-  'lazy|mystic':'लोग सोचते हो, तुम असल में सो रहे होते हो। फर्क नहीं। 🔮',
-  'lazy|lover_p':'"तू ही आ जा" वाले। Effort से allergy है। 💕😴',
-  'lazy|ghost':'Online हो, reply नहीं — Ghost mode on। 👻',
-  'shy|dreamer':'सपनों में confident, real world में "sorry, excuse me।" 🌙',
-  'shy|hustler':'शर्माते हो, पर काम चोरी-छुपे। एक दिन सब देखेंगे। 🔥',
-  'shy|rebel':'Quietly rules तोड़ते हो। कोई देखे न — इसलिए। 💀',
-  'shy|chill':'शांत इसलिए नहीं कि chill हो — बोलते नहीं इसलिए। 🧊',
-  'shy|savage':'जब बोलते हो — एक line में game खत्म। शर्मीले savage। 🐺',
-  'shy|mystic':'कम बोलते, ज़्यादा observe। सबकी secrets तुम्हारे पास। 🔮',
-  'shy|lover_p':'दिल में समुंदर, मुँह पर ताला। जो समझे वही पाए। 💕',
-  'shy|ghost':'Introvert + Ghost = तुम हो ही नहीं, या हो, पता नहीं। 👻',
-  'lover|dreamer':'प्यार और सपने — दोनों में डूबे। Reality check कभी नहीं। 🌙💕',
-  'lover|hustler':'दिल से प्यार, दिमाग से hustle। Goals on goals। 🔥',
-  'lover|rebel':'प्यार में भी rules नहीं। Unconventional romance specialty। 💀',
-  'lover|chill':'Easy-going lover — drama नहीं, vibes हाँ। Ideal partner। 🧊',
-  'lover|savage':'Soft outside, savage inside। Toxic करे तो पता चले। 🐺',
-  'lover|mystic':'प्यार को feel करते, explain नहीं कर सकते। Soulmate energy। 🔮',
-  'lover|lover_p':'Double lover? पूरी दुनिया तुम्हारी — सबसे प्यार। 💕💕',
-  'lover|ghost':'प्यार करते, फिर disappear। Attachment issues। थेरेपी try करो। 👻💕',
-  'silent|dreamer':'खामोश dreamer — सपने बड़े, शोर नहीं। जब होगा सब हैरान। 🌙',
-  'silent|hustler':'Quietly grind। सफलता ही सबसे बड़ा जवाब। 🔥',
-  'silent|rebel':'कहते नहीं, करते हो। Silent rebellion सबसे dangerous। 💀',
-  'silent|chill':'इतने शांत कि echo भी disturb नहीं। Zen master। 🧊',
-  'silent|savage':'जब बोलते हो, धजियाँ उड़ा देते — इसीलिए चुप। 🐺',
-  'silent|mystic':'खामोशी में राज़। तुम्हें सुनना नहीं, feel करना पड़ता। 🔮',
-  'silent|lover_p':'मोहब्बत नज़रों से। Deep। 💕',
-  'silent|ghost':'इतने silent कि लोग भूल जाते — ज़रूरत पर याद आते। 👻',
-  'boss|dreamer':'Vision boss — सपने दूसरों से execute करवाते। 🌙😎',
   'boss|hustler':'Boss + Hustler = खुद भी करते, team को भी। कोई excuse नहीं। 🔥',
-  'boss|rebel':'Corporate rebel — rules तब follow जब convenient। 💀😎',
-  'boss|chill':'Chill boss — pressure में शांत। Rarest personality। 🧊',
-  'boss|savage':'Boss mode + savage mode = दुश्मनों के लिए nightmare। 🐺',
-  'boss|mystic':'तुम्हारी decisions कहाँ से — कोई नहीं जानता। Power। 🔮',
-  'boss|lover_p':'Boss बाहर, lover अंदर। क़रीब आए उसे real मिले। 💕',
-  'boss|ghost':'जब चाहो appear, जब चाहो vanish। Power move। 👻😎',
-  'king|dreamer':'राजा सपने देखता, empire बनाता। दोनों कर रहे हो। 👑🌙',
-  'king|hustler':'बिना permission के throne बनाते। King + Hustler। 🔥👑',
-  'king|rebel':'Rules खुद बनाते, खुद तोड़ते। Sovereign energy। 💀👑',
-  'king|chill':'शांत राजा सबसे खतरनाक। दरबार काँपता है। 🧊👑',
-  'king|savage':'माफ़ नहीं करते, भूलते भी नहीं। 🐺👑',
-  'king|mystic':'चाल कोई नहीं समझता — शतरंज का grandmaster। 🔮👑',
-  'king|lover_p':'प्यार और राज दोनों — वही असली बादशाह। 💕👑',
-  'king|ghost':'कभी दिखते, कभी नहीं — presence हमेशा feel। 👻👑',
-  'don|dreamer':'DON का dream — city नहीं, empire। 🌙🕶️',
-  'don|hustler':'DON काम नहीं करते — करवाते हैं। That\'s the difference। 🔥',
-  'don|rebel':'DON + Rebel = कोई law apply नहीं। Full freedom। 💀🕶️',
-  'don|chill':'DON को जल्दी नहीं। Time उनका wait करता। 🧊',
-  'don|savage':'DON + Savage = भगवान भी सोचे। Most dangerous। 🐺🕶️',
-  'don|mystic':'DON के तरीके mysterious। कोई trace नहीं। 🔮',
-  'don|lover_p':'DON का दिल भी होता — दुश्मन को पता नहीं। 💕🕶️',
-  'don|ghost':'Exist करते हो, proof नहीं। Power personified। 👻🕶️',
-  'warrior|dreamer':'Warrior + Dreamer = empire बनाता। Alexander energy। ⚔️🌙',
-  'warrior|hustler':'रात plan, सुबह action। No days off। ⚔️🔥',
-  'warrior|rebel':'Rules के खिलाफ लड़ने वाला — क्रांति तुमसे। ⚔️💀',
-  'warrior|chill':'जंग के बाद rest — well-deserved peace। ⚔️🧊',
-  'warrior|savage':'मैदान में कोई नहीं टिकता। Period। ⚔️🐺',
-  'warrior|mystic':'खामोश तलवार सबसे तेज़। Ancient wisdom। ⚔️🔮',
-  'warrior|lover_p':'प्यार के लिए लड़ने वाला — सबसे बड़ा योद्धा। ⚔️💕',
-  'warrior|ghost':'Suddenly vanish — सबसे deadly tactic। ⚔️👻'
+  'king|savage':'माफ़ नहीं करते, भूलते भी नहीं। 🐺👑'
 };
 
 var OSEG=[], ISEG=[];
@@ -943,9 +809,6 @@ function mkSeg(parent, cx, cy, r1, r2, sa, ea, color){
 }
 (function(){
   for(var i=0;i<8;i++){ OSEG.push(mkSeg(document.getElementById('outerSegments'),150,150,110,146,i*45-90,i*45-45,HC[i])); ISEG.push(mkSeg(document.getElementById('innerSegments'),100,100,62,96,i*45-90,i*45-45,PC[i])); }
-  var ns='http://www.w3.org/2000/svg';
-  for(var j=0;j<30;j++){ var a=(j/30)*2*Math.PI,hw=0.08,pg=document.createElementNS(ns,'polygon'); pg.setAttribute('points',[(150+132*Math.cos(a-hw))+','+(150+132*Math.sin(a-hw)),(150+132*Math.cos(a+hw))+','+(150+132*Math.sin(a+hw)),(150+146*Math.cos(a+hw))+','+(150+146*Math.sin(a+hw)),(150+146*Math.cos(a-hw))+','+(150+146*Math.sin(a-hw))].join(' ')); pg.setAttribute('fill','#2e3040'); pg.setAttribute('stroke','rgba(255,255,255,.04)'); pg.setAttribute('stroke-width','0.5'); document.getElementById('outerTeeth').appendChild(pg); }
-  for(var k=0;k<18;k++){ var b=(k/18)*2*Math.PI,hw2=0.14,pg2=document.createElementNS(ns,'polygon'); pg2.setAttribute('points',[(100+58*Math.cos(b-hw2))+','+(100+58*Math.sin(b-hw2)),(100+58*Math.cos(b+hw2))+','+(100+58*Math.sin(b+hw2)),(100+70*Math.cos(b+hw2))+','+(100+70*Math.sin(b+hw2)),(100+70*Math.cos(b-hw2))+','+(100+70*Math.sin(b-hw2))].join(' ')); pg2.setAttribute('fill','#252632'); pg2.setAttribute('stroke','rgba(255,255,255,.04)'); pg2.setAttribute('stroke-width','0.5'); document.getElementById('innerTeeth').appendChild(pg2); }
 })();
 
 var power=0, charging=false, chTimer=null, hit100=false, hit100T=0, outerDeg=0, innerDeg=0, spinning=false, spinRAF=null, spinOS=0, spinIS=0, spinOT=0, spinIT=0, spinDur=0, spinT0=0, a1Deg=0, a2Deg=180, arrowSpin=false, arrowRAF=null, aA1S=0, aA2S=0, aA1T=0, aA2T=0, aDur=0, aT0=0, lastTickSeg=-1;
@@ -1030,80 +893,7 @@ function showVibeResult(){
 }
 
 /* ════════════════════════════════════════════════════════
-   ZEN PLAYGROUND (Mini Games Fixed Touch)
-════════════════════════════════════════════════════════ */
-function initPlayground(){
-  var tabs = ['tabBubble','tabRipple','tabAura','tabSand'], panels = ['panelBubble','panelRipple','panelAura','panelSand'];
-  tabs.forEach((id,i)=>{
-    document.getElementById(id).onclick = function(){
-      tabs.forEach(t=>document.getElementById(t).classList.remove('active')); panels.forEach(p=>document.getElementById(p).classList.remove('on'));
-      this.classList.add('active'); document.getElementById(panels[i]).classList.add('on');
-    };
-  });
-
-  /* Bubble Wrap */
-  var bg = document.getElementById('bubbleGrid');
-  if(!bg.children.length){
-    for(var i=0;i<25;i++){
-      var b = document.createElement('div'); b.className='bubble';
-      b.onpointerdown = function(){ if(this.classList.contains('popped'))return; this.classList.add('popped'); buzz([15]); };
-      bg.appendChild(b);
-    }
-  }
-  document.getElementById('btnResetBubbles').onclick = ()=>{ document.querySelectorAll('.bubble').forEach(b=>b.classList.remove('popped')); buzz(10); };
-
-  /* Ripples */
-  var cR = document.getElementById('canvasRipple'), ctxR = cR.getContext('2d'), ripples = [];
-  function resizeR(){ cR.width=cR.offsetWidth; cR.height=cR.offsetHeight; } resizeR();
-  function drawR(){
-    ctxR.clearRect(0,0,cR.width,cR.height);
-    for(var i=0; i<ripples.length; i++){
-      var r = ripples[i]; r.radius += 1.5; r.alpha -= 0.015;
-      if(r.alpha <= 0){ ripples.splice(i,1); i--; continue; }
-      ctxR.beginPath(); ctxR.arc(r.x, r.y, r.radius, 0, Math.PI*2);
-      ctxR.strokeStyle = `rgba(0, 212, 255, ${r.alpha})`; ctxR.lineWidth = 2; ctxR.stroke();
-    }
-    requestAnimationFrame(drawR);
-  } drawR();
-  cR.addEventListener('pointerdown', e=>{ e.preventDefault(); var rect=cR.getBoundingClientRect(); ripples.push({x:e.clientX-rect.left, y:e.clientY-rect.top, radius:0, alpha:1}); buzz([5]); });
-
-  /* Aura Align */
-  var aWrap = document.getElementById('auraWrap'), aBtn = document.getElementById('auraBtn'), isAura = false;
-  var a1=document.getElementById('aura1'), a2=document.getElementById('aura2'), a3=document.getElementById('aura3');
-  var pos = [{x:-50,y:-50},{x:50,y:-30},{x:-30,y:50}];
-  function updateAura(){
-    a1.style.transform = `translate(calc(50% + ${pos[0].x}px), calc(50% + ${pos[0].y}px))`;
-    a2.style.transform = `translate(calc(50% + ${pos[1].x}px), calc(50% + ${pos[1].y}px))`;
-    a3.style.transform = `translate(calc(50% + ${pos[2].x}px), calc(50% + ${pos[2].y}px))`;
-    if(isAura){
-      pos.forEach(p => { p.x *= 0.92; p.y *= 0.92; });
-      if(Math.abs(pos[0].x)<1 && isAura) { isAura=false; buzz([50,30,100]); document.getElementById('perfectText').classList.add('show'); setTimeout(()=>document.getElementById('perfectText').classList.remove('show'),1000); }
-    }
-    requestAnimationFrame(updateAura);
-  } updateAura();
-  aBtn.addEventListener('pointerdown', e=>{ e.preventDefault(); isAura=true; buzz([10]); });
-  aBtn.addEventListener('pointerup', ()=>{ isAura=false; pos=[{x:(Math.random()-.5)*100,y:(Math.random()-.5)*100},{x:(Math.random()-.5)*100,y:(Math.random()-.5)*100},{x:(Math.random()-.5)*100,y:(Math.random()-.5)*100}]; });
-
-  /* Sand */
-  var cS = document.getElementById('canvasSand'), ctxS = cS.getContext('2d'), isDrawing=false, lastS={x:0,y:0};
-  function resizeS(){ cS.width=cS.offsetWidth; cS.height=cS.offsetHeight; } resizeS();
-  ctxS.lineCap = 'round'; ctxS.lineJoin = 'round'; ctxS.lineWidth = 3; ctxS.shadowBlur = 4; ctxS.shadowColor = '#d4a853'; ctxS.strokeStyle = '#221c10';
-  cS.addEventListener('pointerdown', e=>{ e.preventDefault(); isDrawing=true; var r=cS.getBoundingClientRect(); lastS={x:e.clientX-r.left, y:e.clientY-r.top}; try{cS.setPointerCapture(e.pointerId);}catch(_){} });
-  cS.addEventListener('pointerup', ()=>isDrawing=false);
-  cS.addEventListener('pointercancel', ()=>isDrawing=false);
-  cS.addEventListener('pointermove', e=>{
-    if(!isDrawing) return; e.preventDefault();
-    var r=cS.getBoundingClientRect(), nx=e.clientX-r.left, ny=e.clientY-r.top;
-    ctxS.beginPath(); ctxS.moveTo(lastS.x, lastS.y); ctxS.lineTo(nx, ny); ctxS.stroke();
-    ctxS.beginPath(); ctxS.moveTo(lastS.x+8, lastS.y+8); ctxS.lineTo(nx+8, ny+8); ctxS.stroke();
-    ctxS.beginPath(); ctxS.moveTo(lastS.x-8, lastS.y-8); ctxS.lineTo(nx-8, ny-8); ctxS.stroke();
-    lastS={x:nx, y:ny};
-  });
-  document.getElementById('btnResetSand').onclick = ()=>{ ctxS.clearRect(0,0,cS.width,cS.height); buzz(10); };
-}
-
-/* ════════════════════════════════════════════════════════
-   RELAXATION SUITE
+   RELAXATION & BREATHING
 ════════════════════════════════════════════════════════ */
 var tTabs=['tabBreath','tabGround','tabLetgo'], tPans=['panelBreath','panelGround','panelLetgo'];
 tTabs.forEach((t,i)=>{
@@ -1113,7 +903,6 @@ tTabs.forEach((t,i)=>{
   };
 });
 
-/* Breathing */
 var bRun=false, bIdx=0, bTimer=null;
 var B_PHASES = [{l:'INHALE',s:'4 सेकंड',d:4000,h:[5]},{l:'HOLD',s:'7 सेकंड',d:7000,h:[3,50,3]},{l:'EXHALE',s:'8 सेकंड',d:8000,h:[5]}];
 function runBreath(){
@@ -1134,14 +923,12 @@ document.getElementById('breathReset').onclick=function(){
   document.getElementById('breathToggle').textContent='▶ START'; document.getElementById('breathToggle').classList.remove('running'); buzz(10);
 };
 
-/* Heartbeat */
 var hbBeat=false, hbInt=null, hbZone=document.getElementById('hbZone');
 function startHeartbeat(){ if(hbBeat)return; hbBeat=true; hbZone.classList.add('beating'); document.getElementById('hbBgFlash').classList.add('beat'); document.getElementById('hbStatus').textContent='💜 Feel it…'; buzz([60,60,60]); hbInt=setInterval(()=>buzz([60,60,60]),1000); }
 function stopHeartbeat(){ if(!hbBeat)return; hbBeat=false; hbZone.classList.remove('beating'); document.getElementById('hbBgFlash').classList.remove('beat'); document.getElementById('hbStatus').textContent='दबाकर रखें…'; clearInterval(hbInt); buzz([5]); }
 hbZone.onpointerdown=e=>{ try{hbZone.setPointerCapture(e.pointerId);}catch(_){} startHeartbeat(); };
 hbZone.onpointerup=stopHeartbeat; hbZone.onpointercancel=stopHeartbeat; hbZone.onpointerleave=()=>stopHeartbeat();
 
-/* Let Go */
 var lgIn=document.getElementById('letgoInput'), lgBtn=document.getElementById('letgoBtn');
 lgIn.oninput=()=>lgBtn.disabled=(lgIn.value.trim().length===0);
 lgBtn.onclick=function(){
@@ -1156,7 +943,219 @@ lgBtn.onclick=function(){
 };
 
 /* ════════════════════════════════════════════════════════
-   WP REST API FEED (RESTORED EXACTLY)
+   ZEN PLAYGROUND (THE MASTERPIECE - DPR/COALESCED FIXES)
+════════════════════════════════════════════════════════ */
+function fitCanvas(cv){
+  var dpr = Math.min(window.devicePixelRatio || 1, 2.5); // Capped for performance
+  var r = cv.getBoundingClientRect();
+  if(!r.width || !r.height) return false; // Skip if hidden
+  cv._dpr = dpr; cv._cssW = r.width; cv._cssH = r.height;
+  var w = Math.round(r.width * dpr), h = Math.round(r.height * dpr);
+  if(cv.width === w && cv.height === h) return true; // Avoid redundant clear
+  cv.width = w; cv.height = h;
+  return true;
+}
+
+function initPlayground(){
+  var tabs   = ['tabBubble','tabRipple','tabAura','tabSand'];
+  var panels = ['panelBubble','panelRipple','panelAura','panelSand'];
+
+  /* ---- RIPPLES (Smart RAF) ---- */
+  var cR = document.getElementById('canvasRipple'), ctxR = cR.getContext('2d');
+  var ripples = [], rRAF = null, rLast = 0, rRect = null;
+  
+  function drawR(ts){
+    if(!rLast) rLast = ts; 
+    var dt = (ts - rLast) / 1000; 
+    rLast = ts;
+    
+    // Clear full backing store using device pixels
+    ctxR.setTransform(1, 0, 0, 1, 0, 0);
+    ctxR.clearRect(0, 0, cR.width, cR.height);
+    
+    // Draw using CSS pixels
+    var d = cR._dpr || 1; 
+    ctxR.setTransform(d, 0, 0, d, 0, 0);
+    
+    for(var i = ripples.length - 1; i >= 0; i--){
+      var r = ripples[i];
+      r.radius += 95 * dt; 
+      r.alpha -= 0.95 * dt;
+      if(r.alpha <= 0){ ripples.splice(i, 1); continue; }
+      ctxR.beginPath(); 
+      ctxR.arc(r.x, r.y, r.radius, 0, 6.2832);
+      ctxR.strokeStyle = 'rgba(0, 212, 255, ' + r.alpha + ')'; 
+      ctxR.lineWidth = 2; 
+      ctxR.stroke();
+    }
+    
+    if(ripples.length) rRAF = requestAnimationFrame(drawR);
+    else { rRAF = null; rLast = 0; } // Stop battery drain when empty
+  }
+  
+  function fitRipple(){ 
+    if(fitCanvas(cR) && ripples.length){ 
+      rLast = 0; 
+      if(rRAF == null) rRAF = requestAnimationFrame(drawR); 
+    } 
+  }
+
+  /* ---- SAND (Coalesced + Midpoint + True Perpendicular Offset) ---- */
+  var cS = document.getElementById('canvasSand'), ctxS = cS.getContext('2d');
+  var drawingS = false, ptsS = [], sRect = null, LANE = 7;
+  
+  function styleSand(){
+    var d = cS._dpr || 1; 
+    ctxS.setTransform(d, 0, 0, d, 0, 0);
+    ctxS.lineCap = 'round'; ctxS.lineJoin = 'round'; ctxS.lineWidth = 2.5;
+    ctxS.strokeStyle = '#2a2212'; 
+    ctxS.shadowBlur = 2; ctxS.shadowColor = 'rgba(212,168,83,.45)'; // Optimized shadow
+  }
+  
+  function fitSand(){ if(fitCanvas(cS)) styleSand(); }
+
+  // Draw smooth quadratic curves with 3 perpendicular lanes
+  function laneStroke(p0, p1, p2){
+    var m1x = (p0.x + p1.x) / 2, m1y = (p0.y + p1.y) / 2;
+    var m2x = (p1.x + p2.x) / 2, m2y = (p1.y + p2.y) / 2;
+    var dx = p2.x - p0.x, dy = p2.y - p0.y, L = Math.hypot(dx, dy) || 1;
+    var nx = -dy / L, ny = dx / L; // True perpendicular normal
+    
+    for(var k = -1; k <= 1; k++){
+      var ox = nx * k * LANE, oy = ny * k * LANE;
+      ctxS.beginPath(); 
+      ctxS.moveTo(m1x + ox, m1y + oy);
+      ctxS.quadraticCurveTo(p1.x + ox, p1.y + oy, m2x + ox, m2y + oy); 
+      ctxS.stroke();
+    }
+  }
+
+  function seedStroke(a, b){
+    var dx = b.x - a.x, dy = b.y - a.y, L = Math.hypot(dx, dy) || 1;
+    var nx = -dy / L, ny = dx / L;
+    for(var k = -1; k <= 1; k++){ 
+      ctxS.beginPath();
+      ctxS.moveTo(a.x + nx * k * LANE, a.y + ny * k * LANE); 
+      ctxS.lineTo(b.x + nx * k * LANE, b.y + ny * k * LANE); 
+      ctxS.stroke(); 
+    }
+  }
+
+  /* ---- BIND ONCE (Prevents stacked listeners & memory leaks) ---- */
+  if(!initPlayground.bound){
+    initPlayground.bound = true;
+
+    // Tabs logic + Fit Canvas on active
+    tabs.forEach(function(id, i){
+      document.getElementById(id).onclick = function(){
+        tabs.forEach(t => document.getElementById(t).classList.remove('active'));
+        panels.forEach(p => document.getElementById(p).classList.remove('on'));
+        this.classList.add('active'); 
+        document.getElementById(panels[i]).classList.add('on');
+        if(panels[i] === 'panelRipple') fitRipple();
+        if(panels[i] === 'panelSand') fitSand();
+      };
+    });
+
+    // Bubble Wrap
+    var bg = document.getElementById('bubbleGrid');
+    if(!bg.children.length){
+      for(var i=0; i<25; i++){ 
+        var b = document.createElement('div'); b.className = 'bubble';
+        b.onpointerdown = function(e){ 
+          e.preventDefault(); 
+          if(this.classList.contains('popped')) return; 
+          this.classList.add('popped'); buzz([15]); 
+        };
+        bg.appendChild(b); 
+      }
+    }
+    document.getElementById('btnResetBubbles').onclick = () => { 
+      document.querySelectorAll('.bubble').forEach(b => b.classList.remove('popped')); buzz(10); 
+    };
+
+    // Ripples Input
+    cR.addEventListener('pointerdown', function(e){
+      e.preventDefault(); 
+      try{ cR.setPointerCapture(e.pointerId); }catch(_){}
+      rRect = cR.getBoundingClientRect();
+      ripples.push({ x: e.clientX - rRect.left, y: e.clientY - rRect.top, radius: 0, alpha: 1 });
+      if(rRAF == null){ rLast = 0; rRAF = requestAnimationFrame(drawR); } 
+      buzz([5]);
+    });
+
+    // Aura Align
+    var aBtn = document.getElementById('auraBtn'), isAura = false;
+    var a1 = document.getElementById('aura1'), a2 = document.getElementById('aura2'), a3 = document.getElementById('aura3');
+    var pos = [{x:-50,y:-50},{x:50,y:-30},{x:-30,y:50}];
+    (function updateAura(){
+      a1.style.transform = `translate(calc(50% + ${pos[0].x}px), calc(50% + ${pos[0].y}px))`;
+      a2.style.transform = `translate(calc(50% + ${pos[1].x}px), calc(50% + ${pos[1].y}px))`;
+      a3.style.transform = `translate(calc(50% + ${pos[2].x}px), calc(50% + ${pos[2].y}px))`;
+      if(isAura){ 
+        pos.forEach(p => { p.x *= 0.92; p.y *= 0.92; });
+        if(Math.abs(pos[0].x) < 1){ 
+          isAura = false; buzz([50,30,100]);
+          document.getElementById('perfectText').classList.add('show');
+          setTimeout(() => document.getElementById('perfectText').classList.remove('show'), 1000); 
+        } 
+      }
+      requestAnimationFrame(updateAura);
+    })();
+    aBtn.addEventListener('pointerdown', e => { e.preventDefault(); isAura = true; buzz([10]); });
+    aBtn.addEventListener('pointerup', () => { isAura = false; pos=[{x:(Math.random()-.5)*100,y:(Math.random()-.5)*100},{x:(Math.random()-.5)*100,y:(Math.random()-.5)*100},{x:(Math.random()-.5)*100,y:(Math.random()-.5)*100}]; });
+
+    // Sand Input (Opus's Masterpiece Fix)
+    cS.addEventListener('pointerdown', function(e){
+      e.preventDefault(); 
+      fitSand(); 
+      sRect = cS.getBoundingClientRect();
+      drawingS = true; 
+      ptsS = [{ x: e.clientX - sRect.left, y: e.clientY - sRect.top }];
+      try{ cS.setPointerCapture(e.pointerId); } catch(_){}
+    });
+    
+    cS.addEventListener('pointermove', function(e){
+      if(!drawingS) return; 
+      e.preventDefault();
+      // NASA-level touch accuracy
+      var evs = e.getCoalescedEvents ? e.getCoalescedEvents() : [e];
+      for(var j = 0; j < evs.length; j++){
+        ptsS.push({ x: evs[j].clientX - sRect.left, y: evs[j].clientY - sRect.top });
+        var n = ptsS.length;
+        if(n >= 3) laneStroke(ptsS[n-3], ptsS[n-2], ptsS[n-1]);
+        else if(n === 2) seedStroke(ptsS[0], ptsS[1]);
+      }
+    });
+    
+    function endSand(){ drawingS = false; ptsS = []; }
+    cS.addEventListener('pointerup', endSand);
+    cS.addEventListener('pointercancel', endSand);
+    document.getElementById('btnResetSand').onclick = () => { 
+      ctxS.setTransform(1, 0, 0, 1, 0, 0); 
+      ctxS.clearRect(0, 0, cS.width, cS.height); 
+      styleSand(); 
+      buzz(10); 
+    };
+
+    // Auto-fit on screen rotate
+    window.addEventListener('resize', function(){ 
+      if(document.getElementById('panelRipple').classList.contains('on')) fitRipple(); 
+      if(document.getElementById('panelSand').classList.contains('on')) fitSand(); 
+    });
+  }
+
+  // Force active state on first open to ensure bounding box is sized properly
+  var anyOn = panels.some(p => document.getElementById(p).classList.contains('on'));
+  if(!anyOn){ 
+    document.getElementById('tabBubble').classList.add('active'); 
+    document.getElementById('panelBubble').classList.add('on'); 
+  }
+  requestAnimationFrame(function(){ fitRipple(); fitSand(); });
+}
+
+/* ════════════════════════════════════════════════════════
+   WP REST API FEED
 ════════════════════════════════════════════════════════ */
 var API = 'https://vhoriginal.com/wp-json/wp/v2';
 function firstImg(h){ var m = /<img[^>]+src=["']([^"']+)["']/i.exec(h||''); return m ? m[1] : null; }
@@ -1164,10 +1163,7 @@ function thumb(post){
   try{
     var em=post._embedded||{}, fm=em['wp:featuredmedia']&&em['wp:featuredmedia'][0];
     if(fm){
-      if(fm.media_details&&fm.media_details.sizes){
-        var s=fm.media_details.sizes, pk=s.medium_large||s.large||s.medium||s.full;
-        if(pk&&pk.source_url) return pk.source_url;
-      }
+      if(fm.media_details&&fm.media_details.sizes){ var s=fm.media_details.sizes, pk=s.medium_large||s.large||s.medium||s.full; if(pk&&pk.source_url) return pk.source_url; }
       if(fm.source_url) return fm.source_url;
     }
   } catch(e){}
@@ -1176,33 +1172,21 @@ function thumb(post){
 function decode(t){ var d=document.createElement('textarea'); d.innerHTML=t||''; return d.value; }
 function makeCard(post, big, badge){
   var img=thumb(post); if(!img) return null;
-  var a=document.createElement('a');
-  a.href=post.link; a.target='_blank'; a.rel='noopener'; a.className=big?'feat':'pcard';
+  var a=document.createElement('a'); a.href=post.link; a.target='_blank'; a.rel='noopener'; a.className=big?'feat':'pcard';
   var html='<div class="ph"><img loading="lazy" src="'+img+'" alt=""></div>';
   if(badge) html+='<span class="badge">'+badge+'</span>';
   html+='<div class="ttl">'+decode(post.title&&post.title.rendered)+'</div>';
   a.innerHTML=html; return a;
 }
-function resolveId(slug){
-  return fetch(API+'/categories?slug='+encodeURIComponent(slug))
-    .then(r=>r.ok?r.json():[])
-    .then(j=>(j&&j[0]&&j[0].id)||null)
-    .catch(()=>null);
-}
+function resolveId(slug){ return fetch(API+'/categories?slug='+encodeURIComponent(slug)).then(r=>r.ok?r.json():[]).then(j=>(j&&j[0]&&j[0].id)||null).catch(()=>null); }
 function getPosts(slug){
   return resolveId(slug).then(id=>{
-    var url=id
-      ?API+'/posts?categories='+id+'&per_page=12&_embed=wp:featuredmedia,wp:term'
-      :API+'/posts?per_page=40&_embed=wp:featuredmedia,wp:term';
+    var url=id ? API+'/posts?categories='+id+'&per_page=12&_embed=wp:featuredmedia,wp:term' : API+'/posts?per_page=40&_embed=wp:featuredmedia,wp:term';
     return fetch(url).then(r=>{ if(!r.ok) throw new Error('http'); return r.json(); })
       .then(posts=>{
         if(!id){
           posts=posts.filter(p=>{
-            try{
-              var g=(p._embedded&&p._embedded['wp:term'])||[];
-              for(var a=0;a<g.length;a++) for(var t=0;t<g[a].length;t++) if(g[a][t].slug===slug) return true;
-            } catch(e){}
-            return false;
+            try{ var g=(p._embedded&&p._embedded['wp:term'])||[]; for(var a=0;a<g.length;a++) for(var t=0;t<g[a].length;t++) if(g[a][t].slug===slug) return true; } catch(e){} return false;
           });
         }
         return posts;
@@ -1212,16 +1196,10 @@ function getPosts(slug){
 function loadCat(sid, slug, badge){
   var sec=document.getElementById(sid), bb=sec.querySelector('.big'), gr=sec.querySelector('.grid');
   getPosts(slug).then(posts=>{
-    var cards=[];
-    for(var i=0;i<posts.length&&cards.length<5;i++){ var el=makeCard(posts[i],cards.length===0,badge); if(el) cards.push(el); }
+    var cards=[]; for(var i=0;i<posts.length&&cards.length<5;i++){ var el=makeCard(posts[i],cards.length===0,badge); if(el) cards.push(el); }
     if(!cards.length) throw new Error('empty');
-    bb.innerHTML=''; gr.innerHTML='';
-    bb.appendChild(cards[0]);
-    for(var k=1;k<cards.length;k++) gr.appendChild(cards[k]);
-  }).catch(()=>{
-    bb.innerHTML='';
-    gr.innerHTML='<a class="fallback" href="https://vhoriginal.com" target="_blank" rel="noopener">और पढ़िए — vhoriginal.com →</a>';
-  });
+    bb.innerHTML=''; gr.innerHTML=''; bb.appendChild(cards[0]); for(var k=1;k<cards.length;k++) gr.appendChild(cards[k]);
+  }).catch(()=>{ bb.innerHTML=''; gr.innerHTML='<a class="fallback" href="https://vhoriginal.com" target="_blank" rel="noopener">और पढ़िए — vhoriginal.com →</a>'; });
 }
 var io = ('IntersectionObserver' in window) ? new IntersectionObserver((ents,obs)=>{ ents.forEach(e=>{ if(e.isIntersecting){ obs.unobserve(e.target); if(e.target._load) e.target._load(); } }); }, {rootMargin:'250px'}) : null;
 function setupCat(sid, slug, badge){ var sec=document.getElementById(sid); sec._load=()=>{ loadCat(sid,slug,badge); }; if(io) io.observe(sec); else sec._load(); }
